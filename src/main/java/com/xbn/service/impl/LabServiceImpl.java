@@ -14,9 +14,11 @@ public class LabServiceImpl implements LabService {
     @Autowired
     private LabDao labDao;
 
-    public List<UserInfoPojo> queryUserInfo() {
-        List<UserInfoPojo> list = new ArrayList<UserInfoPojo>();
-        list = labDao.queryUserInfo();
-        return list;
+    public UserInfoPojo queryUserAndPassword(UserInfoPojo user){
+       UserInfoPojo  userInfo =  labDao.queryUserAndPassword(user);
+        return userInfo;
+    }
+    public Integer  addUser(UserInfoPojo user){
+        return labDao.addUser(user);
     }
 }

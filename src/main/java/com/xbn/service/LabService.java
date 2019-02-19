@@ -5,6 +5,7 @@ import com.xbn.pojo.UserInfoPojo;
 import java.util.List;
 
 public interface LabService {
-    public List<UserInfoPojo> queryUserInfo();
+    public UserInfoPojo queryUserAndPassword(UserInfoPojo user);
+    public Integer addUser(UserInfoPojo user);
 
 }

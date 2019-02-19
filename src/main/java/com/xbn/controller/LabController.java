@@ -24,9 +24,6 @@ public class LabController {
     public void test(HttpServletRequest req, HttpServletResponse resp) {
         System.out.println("hhhhhh~~~~");
         List<UserInfoPojo> list = new ArrayList<UserInfoPojo>();
-
-        list = labService.queryUserInfo();
-
         System.out.println(list.size());
         System.out.println(list.get(0).getUsername());
         PrintWriter pw = null;

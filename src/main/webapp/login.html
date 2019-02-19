@@ -21,38 +21,70 @@
           <h1>Sign Up for Free</h1>
           
           <form action="/" method="post">
-          
+
           <div class="top-row">
             <div class="field-wrap">
               <label>
-                First Name<span class="req">*</span>
+                用户名<span class="req">*</span>
               </label>
-              <input type="text" required autocomplete="off" />
+              <input type="text" required autocomplete="off" name="usernames"/>
             </div>
-        
+
             <div class="field-wrap">
               <label>
-                Last Name<span class="req">*</span>
+                密码<span class="req">*</span>
               </label>
-              <input type="text"required autocomplete="off"/>
+              <input type="text"required autocomplete="off" name="passwords"/>
             </div>
           </div>
 
           <div class="field-wrap">
             <label>
-              Email Address<span class="req">*</span>
+              Email<span class="req">*</span>
             </label>
-            <input type="email"required autocomplete="off"/>
+            <input type="email"required autocomplete="off" name="email"/>
           </div>
           
           <div class="field-wrap">
             <label>
-              Set A Password<span class="req">*</span>
+              电话号码<span class="req">*</span>
             </label>
-            <input type="password"required autocomplete="off"/>
+            <input type="password"required autocomplete="off" name="mobile"/>
           </div>
-          
-          <button type="submit" class="button button-block"/>Get Started</button>
+
+            <div class="top-row">
+              <div class="field-wrap">
+                <label>
+                  姓名<span class="req">*</span>
+                </label>
+                <input type="text" required autocomplete="off" name="name"/>
+              </div>
+
+              <div class="field-wrap">
+                <label>
+                  教职工、学生编号<span class="req">*</span>
+                </label>
+                <input type="text"required autocomplete="off" name="userid"/>
+              </div>
+            </div>
+            <div class="top-row">
+              <div class="field-wrap">
+                <label>
+                  上级用户名（教师）<span class="req">*</span>
+                </label>
+                <input type="text" required autocomplete="off" name="leaderusername"/>
+              </div>
+
+              <div class="field-wrap">
+                <label>
+                  实验室编号<span class="req">*</span>
+                </label>
+                <input type="text"required autocomplete="off" name="labid"/>
+              </div>
+            </div>
+             <input type="radio" value="Student" checked="checked" />Student    <input type="radio" value="Student" />Teacher
+
+            <button type="submit" class="button button-block"/>Get Started</button>
           
           </form>
 

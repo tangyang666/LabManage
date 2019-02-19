@@ -7,5 +7,6 @@ import java.util.List;
 
 @Repository
 public interface LabDao {
-    List<UserInfoPojo> queryUserInfo();
+    UserInfoPojo queryUserAndPassword(UserInfoPojo user);
+    Integer addUser(UserInfoPojo user);
 }
