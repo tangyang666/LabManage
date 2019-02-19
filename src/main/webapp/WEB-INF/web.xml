@@ -34,7 +34,7 @@
   <!-- 将前端URL请求和后台处理方法controller建立对应关系-->
   <servlet-mapping>
     <servlet-name>springServlet</servlet-name>
-    <url-pattern>/</url-pattern>
+    <url-pattern>*.do</url-pattern>
   </servlet-mapping>
 
   <!-- Spring配置 -->
@@ -50,7 +50,7 @@
   </context-param>
   <!-- 默认跳转页面-->
   <welcome-file-list>
-    <welcome-file>/WEB-INF/index.jsp</welcome-file>
+    <welcome-file>/login.html</welcome-file>
   </welcome-file-list>
   <!--404错误展示页面，可自行配置-->
   <!--<error-page>-->

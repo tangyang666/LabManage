@@ -240,7 +240,7 @@
     <!-- log end -->
   </dependencies>
   <build>
-    <finalName>helloworld</finalName>
+    <finalName>LabManage</finalName>
     <plugins>
       <plugin>
         <groupId>org.mybatis.generator</groupId>

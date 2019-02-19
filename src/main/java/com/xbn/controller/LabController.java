@@ -2,10 +2,6 @@ package com.xbn.controller;
 
 import com.xbn.pojo.UserInfoPojo;
 import com.xbn.service.LabService;
-import com.xbn.service.impl.LabServiceImpl;
-import net.sf.json.JSON;
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +20,7 @@ public class LabController {
     @Autowired
     private LabService labService;
 
-    @RequestMapping(value = "test", method = RequestMethod.GET)
+    @RequestMapping(value = "test.do", method = RequestMethod.GET)
     public void test(HttpServletRequest req, HttpServletResponse resp) {
         System.out.println("hhhhhh~~~~");
         List<UserInfoPojo> list = new ArrayList<UserInfoPojo>();
