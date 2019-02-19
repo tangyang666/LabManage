@@ -37,9 +37,18 @@ public class LoginController {
 
 
         //如果登陆成果 跳转到首页
-        if(labService.queryUserAndPassword(user)!=null)
-        return "redirect:/index.html";
-        else return "用户名或密码错误";
+        if(labService.queryUserAndPassword(user)!=null) {
+            return "redirect:/index.html";
+        } else {
+            try{
+                PrintWriter pw = resp.getWriter();
+                pw.write("用户名或密码错误");
+                pw.flush();
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
     }
     /*@RequestMapping(value = "register.do", method = RequestMethod.POST)
     public String SignUp(HttpServletRequest req, HttpServletResponse resp) {
