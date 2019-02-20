@@ -93,24 +93,26 @@
         <div id="login">   
           <h1>Welcome Back!</h1>
           
-          <form action="login/in.do" method="post">
+          <form id="loginForm" action="login/in.do" method="post">
           
             <div class="field-wrap">
             <label>
               用户名<span class="req">*</span>
             </label>
-            <input type="username"required autocomplete="off" name="username"/>
+            <input type="username" required autocomplete="off" name="username"/>
           </div>
           
           <div class="field-wrap">
             <label>
               密码<span class="req">*</span>
             </label>
-            <input type="password"required autocomplete="off" name="password"/>
+            <input type="password" required autocomplete="off" name="password"/>
           </div>
           
           <p class="forgot"><a href="#">Forgot Password?</a></p>
-          
+
+          <input type="button" class="button button-block" onclick="checkLogin();" value="Log In"/>
+          <br/>
           <button class="button button-block"/>Log In</button>
           
           </form>
@@ -124,5 +126,24 @@
   <script  src="js/login.js"></script>
 
 </body>
+
+<script>
+  function checkLogin() {
+    //ajax提交
+    $.ajax({
+      url:"login/in.do",
+      data:$("#loginForm").serialize(),
+      type:"POST",
+      success:function (resData) {
+        alert(resData);
+        //如果采用这种方式 后台定义一下返回码 根据返回码判断提示用户信息还是登陆成功跳转到首页
+      },
+      error:function (xmlHttpRequest, error) {
+        alert("操作失败，请联系管理员！" + eroor);
+      }
+    });
+  }
+
+</script>
 
 </html>

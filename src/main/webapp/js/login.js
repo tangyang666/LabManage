@@ -16,7 +16,6 @@ $('.form').find('input, textarea').on('keyup blur focus', function (e) {
 		    label.removeClass('highlight');   
 			}   
     } else if (e.type === 'focus') {
-      
       if( $this.val() === '' ) {
     		label.removeClass('highlight'); 
 			} 
@@ -24,7 +23,6 @@ $('.form').find('input, textarea').on('keyup blur focus', function (e) {
 		    label.addClass('highlight');
 			}
     }
-
 });
 
 $('.tab a').on('click', function (e) {
@@ -41,3 +39,4 @@ $('.tab a').on('click', function (e) {
   $(target).fadeIn(600);
   
 });
+

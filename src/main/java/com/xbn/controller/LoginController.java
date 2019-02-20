@@ -31,14 +31,9 @@ public class LoginController {
         System.out.println("password:" + password);*/
 
         //TODO: 登陆校验的逻辑
-        UserInfoPojo pojo = labService.queryUserAndPassword(user);
-
-        System.out.println("pojo:" + pojo);
-
-
         //如果登陆成果 跳转到首页
         if(labService.queryUserAndPassword(user)!=null) {
-            return "redirect:/index.html";
+           return "redirect:/index.html";
         } else {
             try{
                 PrintWriter pw = resp.getWriter();
