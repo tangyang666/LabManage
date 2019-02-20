@@ -15,7 +15,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping(value="/lab")
-public class LabController {
+public class LabController extends BaseController{
 
     @Autowired
     private LabService labService;
@@ -23,17 +23,11 @@ public class LabController {
     @RequestMapping(value = "test.do", method = RequestMethod.GET)
     public void test(HttpServletRequest req, HttpServletResponse resp) {
         System.out.println("hhhhhh~~~~");
-        List<UserInfoPojo> list = new ArrayList<UserInfoPojo>();
-        System.out.println(list.size());
-        System.out.println(list.get(0).getUsername());
-        PrintWriter pw = null;
-        try {
-            pw = resp.getWriter();
-            pw.write(list.get(0).getUsername());
-            pw.flush();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+        UserInfoPojo userInfoPojo = new UserInfoPojo();
+        userInfoPojo.setPassword("test");
+        userInfoPojo.setUsername("test");
+        UserInfoPojo user = labService.queryUserAndPassword(userInfoPojo);
+        resolveJsonReturn(resp, user);
     }
 
 

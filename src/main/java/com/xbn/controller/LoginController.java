@@ -11,11 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping(value="/login")
-public class LoginController {
+public class LoginController extends BaseController{
 
     @Autowired
     private LabService labService;
@@ -31,16 +33,13 @@ public class LoginController {
         //TODO: 登陆校验的逻辑
         //如果登陆成果 跳转到首页
         if(labService.queryUserAndPassword(user)!=null) {
-           return "redirect:/index.html";
+            //登陆成功后将用户登陆信息存放到session中去
+            req.getSession().setAttribute("loginInfo", user);
+            return "redirect:/index.html";
         } else {
-            try{
-                resp.setContentType("text/html;charset=utf-8");
-                PrintWriter pw = resp.getWriter();
-                pw.write("用户名或密码错误");
-                pw.flush();
-            } catch(Exception e) {
-                e.printStackTrace();
-            }
+            Map map = new HashMap();
+            map.put("message","用户名或密码错误");
+            resolveJsonReturn(resp, map);
         }
         return null;
     }

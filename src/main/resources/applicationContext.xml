@@ -107,4 +107,13 @@
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 
+    <!-- 配置拦截器 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/login/**"></mvc:exclude-mapping>
+            <bean class="com.xbn.filter.LabFilter" />
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 </beans>
