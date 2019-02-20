@@ -12,7 +12,6 @@ public class LabFilter extends HandlerInterceptorAdapter {
     private static final Logger LOGGER = LoggerFactory.getLogger(LabFilter.class);
 
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object handler) throws Exception {
-        System.out.println("拦截器～～～～");
         HttpServletRequest request = (HttpServletRequest) httpServletRequest;
         HttpServletResponse response = (HttpServletResponse) httpServletResponse;
         String ctxPath = request.getContextPath();
@@ -23,9 +22,9 @@ public class LabFilter extends HandlerInterceptorAdapter {
         //如果session中的登陆信息为空 跳转到登陆页面
         if(null == session || null == session.getAttribute("loginInfo")) {
             response.sendRedirect(ctxPath + "/login.html");
-            return false;
+            return super.preHandle(httpServletRequest, httpServletResponse, handler);
         }
-        return true;
+        return super.preHandle(httpServletRequest, httpServletResponse, handler);
 
     }
 }
