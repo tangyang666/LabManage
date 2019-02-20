@@ -27,8 +27,6 @@ public class LoginController {
         String password = req.getParameter("password");
         user.setUsername(username);
         user.setPassword(password);
-        /*System.out.println("username:" + username);
-        System.out.println("password:" + password);*/
 
         //TODO: 登陆校验的逻辑
         //如果登陆成果 跳转到首页
@@ -36,6 +34,7 @@ public class LoginController {
            return "redirect:/index.html";
         } else {
             try{
+                resp.setContentType("text/html;charset=utf-8");
                 PrintWriter pw = resp.getWriter();
                 pw.write("用户名或密码错误");
                 pw.flush();
