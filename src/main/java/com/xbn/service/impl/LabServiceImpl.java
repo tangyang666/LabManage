@@ -18,7 +18,10 @@ public class LabServiceImpl implements LabService {
        UserInfoPojo  userInfo =  labDao.queryUserAndPassword(user);
         return userInfo;
     }
-    public Integer  addUser(UserInfoPojo user){
-        return labDao.addUser(user);
+    public void  addUser(UserInfoPojo user){
+         labDao.addUser(user);
+    }
+    public int isNewUser(UserInfoPojo user){
+        return labDao.isNewUser(user);
     }
 }

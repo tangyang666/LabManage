@@ -7,7 +7,11 @@
       select * from lab_user_info where username=#{username} and password=#{password}
     </select>
 
-    <insert id="addUser" parameterType="com.xbn.pojo.UserInfoPojo">
-        insert into  lab_user_info values(#{id},#{username},#{password},#{userType},#{email},#{mobile},#{name},#{leaderName},#{userId},#{labId})
+    <insert id="addUser" useGeneratedKeys="true" keyProperty="id"  parameterType="com.xbn.pojo.UserInfoPojo"  >
+        insert into  lab_user_info (username,password,user_type,email,mobile,name,leader_username,user_id,lab_id) values(#{username},#{password},#{userType},#{email},#{mobile},#{name},#{leaderUsername},#{userId},#{labId})
     </insert>
+
+    <select id="isNewUser" parameterType="com.xbn.pojo.UserInfoPojo" resultType="Integer">
+       select count(*) from lab_user_info where user_id=#{userId} and username=#{username}
+    </select>
 </mapper>

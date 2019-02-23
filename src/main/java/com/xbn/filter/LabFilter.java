@@ -12,10 +12,12 @@ public class LabFilter extends HandlerInterceptorAdapter {
     private static final Logger LOGGER = LoggerFactory.getLogger(LabFilter.class);
 
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object handler) throws Exception {
+
         HttpServletRequest request = (HttpServletRequest) httpServletRequest;
         HttpServletResponse response = (HttpServletResponse) httpServletResponse;
         String ctxPath = request.getContextPath();
-        System.out.println();
+        System.out.println("拦截器");
+        System.out.println(request.getPathInfo());
 
         HttpSession session = request.getSession();
 

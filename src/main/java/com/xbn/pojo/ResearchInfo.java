@@ -3,20 +3,36 @@ package com.xbn.pojo;
 import java.util.Date;
 
 public class ResearchInfo  {
-    private String id;
+    private int id;
     private String labId;
     private String researchName;
     private String researchAutho;
     private String researchType;
     private String researchPublicationName;
-    private Date researchPublicatuinTime;
+    private String researchPublicatuinTime;
     private String awardingUnit;
+    private String researchWay;
+    private String researchContent;
 
-    public String getId() {
+    public String getResearchContent() {
+        return researchContent;
+    }
+    public void setResearchContent(String researchContent) {
+        this.researchContent = researchContent;
+    }
+
+    public String getResearchWay() {
+        return researchWay;
+    }
+    public void setResearchWay(String researchWay) {
+        this.researchWay = researchWay;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -60,11 +76,11 @@ public class ResearchInfo  {
         this.researchPublicationName = researchPublicationName;
     }
 
-    public Date getResearchPublicatuinTime() {
+    public String getResearchPublicatuinTime() {
         return researchPublicatuinTime;
     }
 
-    public void setResearchPublicatuinTime(Date researchPublicatuinTime) {
+    public void setResearchPublicatuinTime(String researchPublicatuinTime) {
         this.researchPublicatuinTime = researchPublicatuinTime;
     }
 

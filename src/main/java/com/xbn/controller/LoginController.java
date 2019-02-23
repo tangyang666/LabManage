@@ -23,32 +23,34 @@ public class LoginController extends BaseController{
     private LabService labService;
 
     @RequestMapping(value = "in.do", method = RequestMethod.POST)
-    public String logIn(HttpServletRequest req, HttpServletResponse resp) {
+    public void logIn(HttpServletRequest req, HttpServletResponse resp) {
         UserInfoPojo user=new UserInfoPojo();
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         user.setUsername(username);
         user.setPassword(password);
-
-        //TODO: 登陆校验的逻辑
         //如果登陆成果 跳转到首页
         if(labService.queryUserAndPassword(user)!=null) {
             //登陆成功后将用户登陆信息存放到session中去
             req.getSession().setAttribute("loginInfo", user);
-            return "redirect:/index.html";
+            Map map = new HashMap();
+            map.put("message","登录成功");
+            map.put("code", "0");
+            resolveJsonReturn(resp, map);
         } else {
             Map map = new HashMap();
             map.put("message","用户名或密码错误");
+            map.put("code", "1");
             resolveJsonReturn(resp, map);
         }
-        return null;
     }
-    /*@RequestMapping(value = "register.do", method = RequestMethod.POST)
-    public String SignUp(HttpServletRequest req, HttpServletResponse resp) {
-        UserInfoPojo user=new UserInfoPojo();
+
+    @RequestMapping(value = "register.do", method = RequestMethod.POST)
+    public void SignUp(HttpServletRequest req, HttpServletResponse resp) {
+        UserInfoPojo user = new UserInfoPojo();
         String username = req.getParameter("usernames");
         String password = req.getParameter("passwords");
-       // String usertype = req.getParameter("usernames");
+        String usertype = req.getParameter("usertype");
         String email = req.getParameter("email");
         String mobile = req.getParameter("mobile");
         String name = req.getParameter("name");
@@ -63,13 +65,20 @@ public class LoginController extends BaseController{
         user.setMobile(mobile);
         user.setName(name);
         user.setUserId(userid);
-        user.setUserType();
-        int result=labService.addUser(user);
-        *//*if(index==)
-            return "redirect:/index.html";
-        else
-        return "用户创建失败";*//*
-    }*/
-
+        user.setUserType(usertype);
+        System.out.println(user);
+        if (labService.isNewUser(user) ==0) {
+            labService.addUser(user);
+            Map map = new HashMap();
+            map.put("message","注册成功，请登录");
+            map.put("code","0");
+            resolveJsonReturn(resp, map);
+        } else {
+            Map map = new HashMap();
+            map.put("message","该用户已注册,请登录或者注册新用户");
+            map.put("code","1");
+            resolveJsonReturn(resp, map);
+        }
+    }
 
 }

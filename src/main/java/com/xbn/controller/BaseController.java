@@ -10,6 +10,8 @@ public class BaseController {
      * 返回JSON
      */
     protected void resolveJsonReturn(HttpServletResponse response, Object obj) {
+        response.setCharacterEncoding("utf-8");
+        response.setContentType("text/html;charset=utf-8");
         String jsonStr = JSON.toJSONString(obj);
         PrintWriter pw = null;
         try {

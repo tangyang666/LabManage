@@ -91,4 +91,20 @@ public class UserInfoPojo {
     public void setLabId(String labId) {
         this.labId = labId;
     }
+
+    @Override
+    public String toString() {
+        return "UserInfoPojo{" +
+                "id='" + id + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", userType='" + userType + '\'' +
+                ", email='" + email + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", name='" + name + '\'' +
+                ", leaderUsername='" + leaderUsername + '\'' +
+                ", userId='" + userId + '\'' +
+                ", labId='" + labId + '\'' +
+                '}';
+    }
 }

@@ -20,21 +20,21 @@
         <div id="signup">   
           <h1>Sign Up for Free</h1>
           
-          <form action="/" method="post">
+          <form  id="signupForm"  action="/login/register.do"  method="post" >
 
           <div class="top-row">
             <div class="field-wrap">
               <label>
                 用户名<span class="req">*</span>
               </label>
-              <input type="text" required autocomplete="off" name="usernames"/>
+              <input type="text" required autocomplete="off" name="usernames"  id="usernames"/>
             </div>
 
             <div class="field-wrap">
               <label>
                 密码<span class="req">*</span>
               </label>
-              <input type="text"required autocomplete="off" name="passwords"/>
+              <input type="password"required autocomplete="off" name="passwords" id="passwords"/>
             </div>
           </div>
 
@@ -47,9 +47,9 @@
           
           <div class="field-wrap">
             <label>
-              电话号码<span class="req">*</span>
+              手机号码<span class="req">*</span>
             </label>
-            <input type="password"required autocomplete="off" name="mobile"/>
+            <input type="text" pattern="(\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$"  required autocomplete="off"   name="mobile" id="mobile"/>
           </div>
 
             <div class="top-row">
@@ -79,20 +79,21 @@
                 <label>
                   实验室编号<span class="req">*</span>
                 </label>
-                <input type="text"required autocomplete="off" name="labid"/>
+                <input type="text" autocomplete="off" name="labid"/>
               </div>
             </div>
             <div>
               <div class="field-wrap">
-                Student<input type="radio" value="Student"  name="studengcheck"/>
+                Student<input type="radio" value="Student"  name="usertype" values="1" checked="checked"/>
               </div>
               <div>
-                Teacher<input type="radio" value="Teacher"   name="teachercheck"/>
+                Teacher<input type="radio" value="Teacher"   name="usertype" values="2"/>
               </div>
             </div>
             <br/>
-            <button type="submit" class="button button-block"/>Get Started</button>
-          
+         <input type="button" class="button button-block"   onclick="checkSignup();" value="Get Started"  />
+           <!-- <br/>&ndash;&gt;
+            <button type="submit"class="button button-block" />Get Started</button>-->
           </form>
 
         </div>
@@ -106,22 +107,20 @@
             <label>
               用户名<span class="req">*</span>
             </label>
-            <input type="username" required autocomplete="off" name="username"/>
+            <input type="username" required autocomplete="off" name="username"  id="username"/>
           </div>
           
           <div class="field-wrap">
             <label>
               密码<span class="req">*</span>
             </label>
-            <input type="password" required autocomplete="off" name="password"/>
+            <input type="password" required autocomplete="off" name="password" id="password"/>
           </div>
           
           <p class="forgot"><a href="#">Forgot Password?</a></p>
 
-          <input type="button" class="button button-block" onclick="checkLogin();" value="Log In"/>
-          <br/>
-          <button class="button button-block"/>Log In</button>
-          
+         <input type="button" class="button button-block"  onclick="checkLogin();" value="Log In" />
+
           </form>
 
         </div>
@@ -142,14 +141,59 @@
       data:$("#loginForm").serialize(),
       type:"POST",
       success:function (resData) {
-        alert(resData);
+       // alert(resData);
         //如果采用这种方式 后台定义一下返回码 根据返回码判断提示用户信息还是登陆成功跳转到首页
+          var obj = JSON.parse(resData);
+          if(obj.code==0)
+          {
+              var url=window.location.href+"/index.html";
+              window.location.href=url;
+          }
+          else
+          {
+              alert(obj.message);
+          }
       },
       error:function (xmlHttpRequest, error) {
         alert("操作失败，请联系管理员！" + eroor);
       }
     });
   }
+  function checkSignup() {
+     /* var usernames =$("#usernames").val();
+      var passwords =$("#passwords").val();*/
+      //ajax提交
+      $.ajax({
+          url:"login/register.do",
+          data:$("#signupForm").serialize(),
+          type:"POST",
+          success:function (resData) {
+              var obj = JSON.parse(resData);
+              if(obj.code==0)
+              {
+                  //注册成功，跳转登录页面
+                  alert(obj.message);
+                  /*location.hash="#login";
+                $("#username").val(usernames);
+                 $("#password").val(passwords);*/
+              }
+              else
+              {
+                  //已经有用户注册，请重新注册或者登录
+                  alert(obj.message);
+              }
+          },
+          error:function (xmlHttpRequest, error) {
+              alert("操作失败，请联系管理员！" + eroor);
+          }
+      });
+  }
+
+  $(document).ready(function() {
+      $("#loginButton").ajaxForm(function(data){
+          alert("返回的值是" + data);
+      });
+  });
 
 </script>
 

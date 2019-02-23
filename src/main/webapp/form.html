@@ -254,10 +254,10 @@
                     </li>
                     
                     <li>
-                        <a href="table.html"><i class="fa fa-table"></i> Responsive Tables</a>
+                        <a href="table.html"><i class="fa fa-table"></i> 科研成果查询</a>
                     </li>
                     <li>
-                        <a href="form.html" class="active-menu"><i class="fa fa-edit"></i> Forms </a>
+                        <a href="form.html" class="active-menu"><i class="fa fa-edit"></i> 科研成果登记 </a>
                     </li>
 
 
@@ -297,197 +297,104 @@
 
         </nav>
         <!-- /. NAV SIDE  -->
+        <form   id="researchForm" action="research/record.do" method="post">
         <div id="page-wrapper" >
             <div id="page-inner">
 			 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Forms Page <small>Best form elements.</small>
+                           科研成果登记
                         </h1>
                     </div>
-                </div> 
+                </div>
                  <!-- /. ROW  -->
               <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Basic Form Elements
+                            成果基本信息
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form">
                                         <div class="form-group">
-                                            <label>Text Input</label>
-                                            <input class="form-control">
-                                            <p class="help-block">Example block-level help text here.</p>
+                                            <label>实验室编号</label>
+                                            <input class="form-control"  type="text"required="required" name="labid">
                                         </div>
                                         <div class="form-group">
-                                            <label>Text Input with Placeholder</label>
-                                            <input class="form-control" placeholder="Enter text">
+                                            <label>科研成果名称</label>
+                                            <input class="form-control" required="required" name="researchname">
                                         </div>
                                         <div class="form-group">
-                                            <label>Static Control</label>
-                                            <p class="form-control-static">email@example.com</p>
+                                            <label>第一作者</label>
+                                            <input class="form-control" required="required" type="text" name="researchautho">
                                         </div>
                                         <div class="form-group">
-                                            <label>File input</label>
-                                            <input type="file">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Text area</label>
-                                            <textarea class="form-control" rows="3"></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Checkboxes</label>
+                                            <label>研究形式</label>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Checkbox 1
+                                                    <input type="checkbox" value="独立研究" name="researchway">独立研究
                                                 </label>
-                                            </div>
-                                            <div class="checkbox">
+
                                                 <label>
-                                                    <input type="checkbox" value="">Checkbox 2
+                                                    <input type="checkbox" value="与企业合作"  name="researchway">与企业合作
                                                 </label>
-                                            </div>
-                                            <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Checkbox 3
+                                                    <input type="checkbox" value="与院校合作"  name="researchway">与院校合作
                                                 </label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Inline Checkboxes</label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox">1
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox">2
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox">3
-                                            </label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Radio Buttons</label>
-                                            <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">Radio 1
+                                                    <input type="checkbox" value="与研究所合作"  name="researchway">与研究所合作
                                                 </label>
-                                            </div>
-                                            <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Radio 2
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">Radio 3
+                                                    <input type="checkbox" value="与国外合作"  name="researchway">与国外合作
                                                 </label>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label>Inline Radio Buttons</label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" value="option1" checked="">1
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" value="option2">2
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline3" value="option3">3
-                                            </label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Selects</label>
-                                            <select class="form-control">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Multiple Selects</label>
-                                            <select multiple="" class="form-control">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
-                                        </div>
-                                        <button type="submit" class="btn btn-default">Submit Button</button>
-                                        <button type="reset" class="btn btn-default">Reset Button</button>
-                                    </form>
-                                </div>
+                                    <div class="form-group">
+                                        <label>科研成果简介</label>
+                                        <textarea class="form-control" rows="3"  name="researchcontent"></textarea>
+                                    </div>
+                                    <span style="display:block; width:230px; text-align:right">
+                                        <input type="button" class="btn btn-default" style="background:darkseagreen" onclick="checkRecord();"  value="Submit Button"/>
+                                    </span>
+
+                            </div>
                                 <!-- /.col-lg-6 (nested) -->
                                 <div class="col-lg-6">
-                                    <h4>Disabled Form States</h4>
-                                    <form role="form">
-                                        <fieldset disabled="">
+                                        <fieldset >
                                             <div class="form-group">
-                                                <label for="disabledSelect">Disabled input</label>
-                                                <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input" disabled="">
+                                                <label >发表（出版社）刊物名称</label>
+                                                <input class="form-control" required="required" type="text"   name="researchpublicationname" >
                                             </div>
                                             <div class="form-group">
-                                                <label for="disabledSelect">Disabled select menu</label>
-                                                <select id="disabledSelect" class="form-control">
-                                                    <option>Disabled select</option>
-                                                </select>
+                                                <label >出版时间(例2019-2-2)</label>
+                                                <input class="form-control"  type="text"   name="researchpublicatuintime" >
                                             </div>
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox">Disabled Checkbox
-                                                </label>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary">Disabled Button</button>
+
                                         </fieldset>
-                                    </form>
-                                    <h4>Form Validation States</h4>
-                                    <form role="form">
-                                        <div class="form-group has-success">
-                                            <label class="control-label" for="inputSuccess">Input with success</label>
-                                            <input type="text" class="form-control" id="inputSuccess">
-                                        </div>
-                                        <div class="form-group has-warning">
-                                            <label class="control-label" for="inputWarning">Input with warning</label>
-                                            <input type="text" class="form-control" id="inputWarning">
-                                        </div>
-                                        <div class="form-group has-error">
-                                            <label class="control-label" for="inputError">Input with error</label>
-                                            <input type="text" class="form-control" id="inputError">
-                                        </div>
-                                    </form>
-                                    <h4>Input Groups</h4>
-                                    <form role="form">
                                         <div class="form-group input-group">
-                                            <span class="input-group-addon">@</span>
-                                            <input type="text" class="form-control" placeholder="Username">
+                                            <label >鉴别、授奖单位名称</label>
+                                            <input type="text" class="form-control" required="required" name="awardingunit">
                                         </div>
-                                        <div class="form-group input-group">
-                                            <input type="text" class="form-control">
-                                            <span class="input-group-addon">.00</span>
-                                        </div>
-                                        <div class="form-group input-group">
-                                            <span class="input-group-addon"><i class="fa fa-eur"></i>
-                                            </span>
-                                            <input type="text" class="form-control" placeholder="Font Awesome Icon">
-                                        </div>
-                                        <div class="form-group input-group">
-                                            <span class="input-group-addon">$</span>
-                                            <input type="text" class="form-control">
-                                            <span class="input-group-addon">.00</span>
-                                        </div>
-                                        <div class="form-group input-group">
-                                            <input type="text" class="form-control">
-                                            <span class="input-group-btn">
-                                                <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
-                                                </button>
-                                            </span>
-                                        </div>
-                                    </form>
+
+                                    <div class="form-group">
+                                        <label>科研成果类型</label>
+                                        <select class="form-control"  name="researchtype" >
+                                            <option value="论文" >论文</option>
+                                            <option value="著作" >著作</option>
+                                            <option value="专利">专利</option>
+                                            <option value="鉴定成果">鉴定成果</option>
+                                            <option value="获奖成果及获批项目" >获奖成果及获批项目</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>成果文件</label>
+                                        <input type="file">
+                                    </div>
+                                    </br></br></br>
+                                    <span style="display:block; width:270px; text-align:right">
+                                        <input type="reset" class="btn btn-default" style="background:darkseagreen" value="Reset Button"/>
+                                    </span>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
                             </div>
@@ -499,12 +406,12 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-			<footer><p>Copyright &copy; 2016.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p></footer>
+			<footer><p>科研成果登记模块 毕设系统</p></footer>
 			</div>
              <!-- /. PAGE INNER  -->
             </div>
          <!-- /. PAGE WRAPPER  -->
-        </div>
+        </form></div>
      <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
@@ -518,4 +425,30 @@
     
    
 </body>
+
+<script>
+    function checkRecord() {
+        //ajax提交
+        $.ajax({
+            url:"research/record.do",
+            data:$("#researchForm").serialize(),
+            type:"POST",
+            success:function (resData) {
+                //如果采用这种方式 后台定义一下返回码 根据返回码判断提示用户信息还是登陆成功跳转到首页
+                var obj = JSON.parse(resData);
+                if(obj.code==0)
+                {
+                    alert(obj.message);
+                }
+                else
+                {
+                    alert(obj.message);
+                }
+            },
+            error:function (xmlHttpRequest, error) {
+                alert("操作失败，请联系管理员！" + eroor);
+            }
+        });
+    }
+</script>
 </html>
