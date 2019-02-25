@@ -244,7 +244,7 @@
                         <a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="ui-elements.html" class="active-menu"><i class="fa fa-desktop"></i> UI Elements</a>
+                        <a href="ui-elements.html" class="active-menu"><i class="fa fa-desktop"></i> 工作日报记录</a>
                     </li>
 					<li>
                         <a href="chart.html"><i class="fa fa-bar-chart-o"></i> Charts</a>
@@ -254,10 +254,10 @@
                     </li>
                     
                     <li>
-                        <a href="table.html"><i class="fa fa-table"></i> Responsive Tables</a>
+                        <a href="table.html"><i class="fa fa-table"></i> 科研成果查询</a>
                     </li>
                     <li>
-                        <a href="form.html"><i class="fa fa-edit"></i> Forms </a>
+                        <a href="form.html"><i class="fa fa-edit"></i> 科研成果登记 </a>
                     </li>
 
 
@@ -302,22 +302,25 @@
 			 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            UI Elements <small>This is your UI elements section</small>
+                            工作日报记录
                         </h1>
+
                     </div>
                 </div> 
                  <!-- /. ROW  -->
-				 
-				
 			<div class="row">
 
 			  <div class="col-md-12">
 			<div class="panel panel-default">
-				<div class="panel-heading">
-				 Messages
-				</div>        
-							  
-							<div class="panel-body"> 
+                <br  id="recordForm" action="record/record.do" method="post">
+				<div class="panel-heading" align="center">
+				 <label class="alert alert-warning">日报标题:</label>
+                   <input type="text" class="alert alert-info"  aria-describedby="basic-addon1" name="">
+				</div>
+                    <div class="panel-heading" >
+                    <textarea class="form-control" rows="8"  name="researchcontent" placeholder="工作内容记录"></textarea>
+                    </div></br></br>
+							<!--<div class="panel-body">
 								<div class="alert alert-success">
 									<strong>Well done!</strong> You successfully read this important alert message.
 								</div>
@@ -330,8 +333,20 @@
 								<div class="alert alert-danger">
 									<strong>Oh snap!</strong> Change a few things up and try submitting again.
 								</div>
-							</div>
-				</div>
+							</div>-->
+
+                    <div class="input-group ">
+                        <span class="alert alert-warning" >用户名</span>
+                        <input type="text" class="alert alert-info" placeholder="Username" aria-describedby="basic-addon1">
+                        &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
+                        <span class="alert alert-warning" aligen="left">日期</span>
+                        <input type="text" class="alert alert-info" placeholder="Date" aria-describedby="basic-addon1">
+                        &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
+                       <input type="button" class="btn btn-success btn-lg" value="提交"/>
+
+                    </div>
+                </form>
+            </div>
 			</div>						
 				</div>								
 									

@@ -141,7 +141,6 @@
       data:$("#loginForm").serialize(),
       type:"POST",
       success:function (resData) {
-       // alert(resData);
         //如果采用这种方式 后台定义一下返回码 根据返回码判断提示用户信息还是登陆成功跳转到首页
           var obj = JSON.parse(resData);
           if(obj.code==0)
@@ -172,7 +171,7 @@
               if(obj.code==0)
               {
                   //注册成功，跳转登录页面
-                  alert(obj.message);
+               alert(obj.message);
                   /*location.hash="#login";
                 $("#username").val(usernames);
                  $("#password").val(passwords);*/

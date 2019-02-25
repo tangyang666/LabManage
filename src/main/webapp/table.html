@@ -248,7 +248,7 @@
                         <a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="ui-elements.html"><i class="fa fa-desktop"></i> UI Elements</a>
+                        <a href="ui-elements.html"><i class="fa fa-desktop"></i> 工作日报记录 </a>
                     </li>
 					<li>
                         <a href="chart.html"><i class="fa fa-bar-chart-o"></i> Charts</a>
@@ -310,7 +310,6 @@
                         </h1>
                     </div>
                 </div>
-               
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group" align="center">
@@ -318,25 +317,26 @@
                         <label style="font-size:20px; font-color:green">查询条件</label>
                         <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                         <span style=" width:300px; text-align:right; letter-spacing:0.5em">
-                        <select   name="condition" id="condition">
+                        <select   name="condition" id="condition"  >
                             <option value="1" >科研成果名称</option>
                             <option value="2" >实验室编号</option>
                             <option value="3">第一作者</option>
                         </select>
                             </span>
-                        <span style=" width:200px; text-align:right;  letter-spacing:2em" >   :<input name="result" id="result"/> </span>
+                        <span style=" width:200px; text-align:right;  letter-spacing:2em" >   :<input  name="result" id="result"/> </span>
                         <span style=" width:200px; text-align:right; letter-spacing:2em">
                              <span>&nbsp;&nbsp;&nbsp;</span>
                         <input type="button"  class="btn btn-default" style="background:darkseagreen" onclick="gotopage(0);" value="Search"/>
                         </span>
                     </div>
-                    <div class="panel panel-default">
-                            <div class="panel-heading" align="center">
-                                总页数<span id="totalPage"></span> &nbsp;当前页数<span id="currentPage"></span>&nbsp;
-                                <a href="javascript:void(0)" onclick="gotopage(-1)">上一页</a>
-                                <a href="javascript:void(0)" onclick="gotopage(1)">下一页</a>
-                            </div>
-                        <table class="table table-bordered" border="1" align="center">
+                  <!--  <div class="class="well well-sm" >-->
+                        总页数<span id="totalPage" style="text-align: left"></span></br></br>
+                                <a href="javascript:void(0)" onclick="gotopage(-1)"  >上一页</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;当前页数:<span id="currentPage"></span>&nbsp; &nbsp;&nbsp;&nbsp;
+                                <a href="javascript:void(0)" onclick="gotopage(1)" >下一页</a>
+                  <!--  </div>-->
+                <div class="well well-lg">
+                        <table class="table table-bordered " border="1" align="center">
                             <tr>
                                 <th>id</th>
                                 <th>实验室编号</th>
@@ -346,68 +346,30 @@
                                 <th>详情</th>
                             </tr>
                              <tbody id="adminTbody">
-                            </tbody>
-
-                         
+                            </tbody> 
                         </table>
-
-
-
-<!--                            <table border="1" align="center" >
-                                <tr >
-                                    <th colspan="4" style="text-align:center; vertical-alig:middle;width: 700px; height:40px;" >成果概况</th>
-                                </tr>
-                                <tr>
-                                    <th  style="text-align:center; vertical-alig:middle;width:100px;height:35px; ">成果名称</th>
-                                    <td  colspan="3" style="height:40px;text-align:center; vertical-alig:middle;">毕设系统</td>
-                                </tr>
-
-                                <tr>
-                                    <th  style="text-align:center; vertical-alig:middle;width:100px;height:40px;">实验室编号</th>
-                                    <td style="width:300px; height:40px;text-align:center; vertical-alig:middle;">001</td>
-                                    <th  style="text-align:center; vertical-alig:middle;width:100px;height:40px;">出版时间</th>
-                                    <td  style="height:40px;text-align:center; vertical-alig:middle;" >2019.2.22</td>
-                                </tr>
-                                <tr>
-                                <th  style="text-align:center; vertical-alig:middle;width:100px;height:40px;">第一作者</th>
-                                <td  colspan="3" style="height:40px;text-align:center; vertical-alig:middle;" >夏伯娜</td>
-                                </tr>
-                                <tr>
-                                    <th  style="text-align:center; vertical-alig:middle;width:100px;height:40px;">成果类型</th>
-                                    <td  colspan="3" style="height:40px;text-align:center; vertical-alig:middle;" >
-                                       <input type="checkbox" value="论文" >论文
-                                        <input type="checkbox" value="著作" >著作
-                                        <input type="checkbox" value="专利" >专利
-                                        <input type="checkbox" value="鉴定成果" >鉴定成果
-                                        <input type="checkbox" value="获奖成果及获批项目" >获奖成果及获批项目
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th  style="text-align:center; vertical-alig:middle;width:100px;height:40px;">研究形式</th>
-                                    <td  colspan="3" style="height:40px;text-align:center; vertical-alig:middle;" >
-                                        <input type="checkbox" value="独立研究" >独立研究
-                                        <input type="checkbox" value="与企业合作" >与企业合作
-                                        <input type="checkbox" value="与院校合作" >与院校合作
-                                        <input type="checkbox" value="与研究所合作" >与研究所合作
-                                        <input type="checkbox" value="与国外合作" >与国外合作
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th  style="text-align:center; vertical-alig:middle;width:100px;height:40px;">发表刊物名称</th>
-                                    <td colspan="3" style="height:40px;text-align:center; vertical-alig:middle;" >西北大学</td>
-                                </tr>
-                                <tr>
-                                    <th  style="text-align:center; vertical-alig:middle;width:150px;height:40px;">鉴别、授奖单位名称</th>
-                                    <td colspan="3" style="height:40px;text-align:center; vertical-alig:middle;" >西北大学</td>
-                                </tr>
-                                <tr>
-                                    <th  style="text-align:center; vertical-alig:middle;width:100px;height:200px;">成果简介</th>
-                                    <td colspan="3"  >实验室管理系统</td>
-                                </tr>
-
-                            </table>-->
+                    </div>
                         </br></br></br></br></br>
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">成果概况</h4>
+                                </div>
+                                <div class="modal-body">
+                                   <table id="detailTable"  class="well well-sm" border="1" align="center">
+                                   </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+
+
+                </div>
                     </div>
                 </div>
             </div>
@@ -446,7 +408,7 @@
 
 <script>
     var pageNumber = 1;
-    var totalPage=0;
+    var totalPage=1;
     function gotopage(flag){    //统一调用此方法
         if(flag==-1){
             if(pageNumber-1<=0) {
@@ -481,19 +443,64 @@
                 var obj = JSON.parse(resData);
                 var list = obj.pageinfo.list;
                 totalPage = obj.pageinfo.total;
-
                 var tableBody = $('#adminTbody');
                 var innerHtml = '';
                 for(var i = 0;i < list.length;i ++) {
                     innerHtml += '<tr><td>' + list[i].id + '</td><td>' + list[i].labId + '</td><td>' + list[i].researchName + '</td><td>' +
-                        list[i].researchAuthor + '</td><td>' + list[i].researchType + '</td><a></a><td>详情展示</td></tr>'
+                        list[i].researchAuthor + '</td><td>' + list[i].researchType+'</td><td><a tabindex="0"  data-placement="left"     class="btn btn-success" role="button" data-toggle="popover" data-trigger="hover"    data-html="true" title="详情展示"  data-content=\'' +
+                        '' +'<table border="1"><tr> <th colspan="4" style="text-align:center; vertical-alig:middle;width: 700px; height:40px;" >成果概况</th> </tr> <tr>'+' <th  style="text-align:center; vertical-alig:middle;width:100px;height:35px; ">成果名称</th> <td  colspan="3" style="height:40px;text-align:center; vertical-alig:middle;">'+list[i].researchName+
+                    '</td> </tr> <tr> <th  style="text-align:center; vertical-alig:middle;width:100px;height:40px;">实验室编号</th> <td style="width:300px; height:40px;text-align:center; vertical-alig:middle;">'+list[i].labId+'</td> <th  style="text-align:center; vertical-alig:middle;width:100px;height:40px;">出版时间</th> <td  style="height:40px;text-align:center; vertical-alig:middle;" >'+list[i].researchPublicationtime+
+                    '</td> </tr> <tr> <th  style="text-align:center; vertical-alig:middle;width:100px;height:40px;">第一作者</th> <td  colspan="3" style="height:40px;text-align:center; vertical-alig:middle;" >'+list[i].researchAuthor+'</td> </tr> <tr> <th  style="text-align:center; vertical-alig:middle;width:100px;height:40px;">成果类型</th> <td  colspan="3" style="height:40px;text-align:center; vertical-alig:middle;" > ';
+                    if(list[i].researchType == '论文') {
+                        innerHtml += '<input type="checkbox" value="论文" checked>论文 <input type="checkbox" value="著作" >著作 <input type="checkbox" value="专利" >专利 <input type="checkbox" value="鉴定成果" >鉴定成果 <input type="checkbox" value="获奖成果及获批项目" >获奖成果及获批项目 </td> </tr>';
+                    }
+                    if(list[i].researchType == '著作') {
+                        innerHtml += '<input type="checkbox" value="论文">论文 <input type="checkbox" value="著作" checked>著作 <input type="checkbox" value="专利" >专利 <input type="checkbox" value="鉴定成果" >鉴定成果 <input type="checkbox" value="获奖成果及获批项目" >获奖成果及获批项目 </td> </tr>';
+                    }
+                    if(list[i].researchType == '专利') {
+                        innerHtml += '<input type="checkbox" value="论文">论文 <input type="checkbox" value="著作" >著作 <input type="checkbox" value="专利" checked>专利 <input type="checkbox" value="鉴定成果" >鉴定成果 <input type="checkbox" value="获奖成果及获批项目" >获奖成果及获批项目 </td> </tr>';
+                    }
+                    if(list[i].researchType == '鉴定成果') {
+                        innerHtml += '<input type="checkbox" value="论文">论文 <input type="checkbox" value="著作" >著作 <input type="checkbox" value="专利" >专利 <input type="checkbox" value="鉴定成果" checked>鉴定成果 <input type="checkbox" value="获奖成果及获批项目" >获奖成果及获批项目 </td> </tr>';
+                    }
+                    if(list[i].researchType == '获奖成果及获批项目') {
+                        innerHtml += '<input type="checkbox" value="论文">论文 <input type="checkbox" value="著作" >著作 <input type="checkbox" value="专利" >专利 <input type="checkbox" value="鉴定成果" >鉴定成果 <input type="checkbox" value="获奖成果及获批项目" checked>获奖成果及获批项目 </td> </tr>';
+                    }
+
+                    innerHtml += '<tr> <th  style="text-align:center; vertical-alig:middle;width:100px;height:40px;">研究形式</th> <td  colspan="3" style="height:40px;text-align:center; vertical-alig:middle;" > ';
+
+                    if(list[i].researchWay == '独立研究') {
+                        innerHtml += '<input type="checkbox" value="独立研究" checked>独立研究 <input type="checkbox" value="与企业合作" >与企业合作 <input type="checkbox" value="与院校合作" >与院校合作 <input type="checkbox" value="与研究所合作" >与研究所合作 <input type="checkbox" value="与国外合作" >与国外合作';
+                    }
+                    if(list[i].researchWay == '与企业合作') {
+                        innerHtml += '<input type="checkbox" value="独立研究" >独立研究 <input type="checkbox" value="与企业合作" checked>与企业合作 <input type="checkbox" value="与院校合作" >与院校合作 <input type="checkbox" value="与研究所合作" >与研究所合作 <input type="checkbox" value="与国外合作" >与国外合作';
+                    }
+                    if(list[i].researchWay == '与院校合作') {
+                        innerHtml += '<input type="checkbox" value="独立研究" >独立研究 <input type="checkbox" value="与企业合作" >与企业合作 <input type="checkbox" value="与院校合作" checked>与院校合作 <input type="checkbox" value="与研究所合作" >与研究所合作 <input type="checkbox" value="与国外合作" >与国外合作';
+                    }
+                    if(list[i].researchWay == '与研究所合作') {
+                        innerHtml += '<input type="checkbox" value="独立研究" >独立研究 <input type="checkbox" value="与企业合作" >与企业合作 <input type="checkbox" value="与院校合作" >与院校合作 <input type="checkbox" value="与研究所合作" checked>与研究所合作 <input type="checkbox" value="与国外合作" >与国外合作';
+                    }
+                    if(list[i].researchWay == '与国外合作') {
+                        innerHtml += '<input type="checkbox" value="独立研究" >独立研究 <input type="checkbox" value="与企业合作" >与企业合作 <input type="checkbox" value="与院校合作" >与院校合作 <input type="checkbox" value="与研究所合作" >与研究所合作 <input type="checkbox" value="与国外合作" checked>与国外合作';
+                    }
+
+                    innerHtml += '</td> </tr> <tr> <th  style="text-align:center; vertical-alig:middle;width:100px;height:40px;">发表刊物名称</th> <td colspan="3" style="height:40px;text-align:center; vertical-alig:middle;" >' +list[i].researchPublicationname+'</td> </tr> <tr> <th  style="text-align:center; vertical-alig:middle;width:150px;height:40px;">鉴别、授奖单位名称</th> ' +
+                    '<td colspan="3" style="height:40px;text-align:center; vertical-alig:middle;" >'+list[i].researchAwardingunit +'</td> </tr> <tr> <th  style="text-align:center; vertical-alig:middle;width:100px;height:200px;">成果简介</th> <td colspan="3"  >'+list[i].researchContent+'</td> </tr>\'>'+"详情展示"+'</a></td>';
                 }
                 tableBody.html(innerHtml);
-
+                $('[data-toggle="popover"]').popover();
                 $('#totalPage').html(totalPage);
                 $('#currentPage').html(pageNumber);
             },
             error:function (xmlHttpRequest, error) {
+               /* $.globalMessenger().post({
+                    message: "操作失败，请联系管理员！",//提示信息
+                    type: 'error',//消息类型。error、info、success
+                    hideAfter: 3,//多长时间消失
+                    showCloseButton:true,//是否显示关闭按钮
+                    hideOnNavigate: true //是否隐藏导航
+                });*/
                 alert("操作失败，请联系管理员！" + error);
             }
         });
