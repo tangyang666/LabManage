@@ -318,28 +318,27 @@
                         <label style="font-size:20px; font-color:green">查询条件</label>
                         <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                         <span style=" width:300px; text-align:right; letter-spacing:0.5em">
-                        <select   name="condition" >
+                        <select   name="condition" id="condition">
                             <option value="1" >科研成果名称</option>
                             <option value="2" >实验室编号</option>
                             <option value="3">第一作者</option>
                         </select>
                             </span>
-                        <span style=" width:200px; text-align:right;  letter-spacing:2em" >   :<input name="result" /> </span>
+                        <span style=" width:200px; text-align:right;  letter-spacing:2em" >   :<input name="result" id="result"/> </span>
                         <span style=" width:200px; text-align:right; letter-spacing:2em">
                              <span>&nbsp;&nbsp;&nbsp;</span>
-                        <input type="button"  class="btn btn-default" style="background:darkseagreen" onclick="checkRecord();" value="Search"/>
+                        <input type="button"  class="btn btn-default" style="background:darkseagreen" onclick="gotopage(0);" value="Search"/>
                         </span>
                     </div>
                     <div class="panel panel-default">
-                        <br class="panel-heading">
-
                             <div class="panel-heading" align="center">
+                                总页数<span id="totalPage"></span> &nbsp;当前页数<span id="currentPage"></span>&nbsp;
                                 <a href="javascript:void(0)" onclick="gotopage(-1)">上一页</a>
-                                当前页数<input type="text" name="">
                                 <a href="javascript:void(0)" onclick="gotopage(1)">下一页</a>
-                            </div></br>
-                        <table  border="1" align="center">
+                            </div>
+                        <table class="table table-bordered" border="1" align="center">
                             <tr>
+                                <th>id</th>
                                 <th>实验室编号</th>
                                 <th>科研成果名称</th>
                                 <th>第一作者</th>
@@ -347,6 +346,7 @@
                                 <th>详情</th>
                             </tr>
                              <tbody id="adminTbody">
+                            </tbody>
 
                          
                         </table>
@@ -449,42 +449,52 @@
     var totalPage=0;
     function gotopage(flag){    //统一调用此方法
         if(flag==-1){
-            if( pageNumber-1<=0)
-                pageNumber=1;
-            else
+            if(pageNumber-1<=0) {
+                return;
+            } else {
                 pageNumber=pageNumber-1;
-        }
-        else{
-            if( pageNumber+1>totalPage)
-                pageNumber=pageNumber;
-            else
+            }
+        } else if(flag == 1) {
+            if(pageNumber+1>totalPage)
+                return;
+            else {
                 pageNumber=pageNumber+1;
+            }
+        } else {
+            pageNumber = 1;
         }
         searchRecord();
-
     }
 
     function searchRecord() {
+        var condition = $('#condition').val();
+        var result = $('#result').val();
         //ajax提交
         $.ajax({
             url:"research/search.do",
-            data: {"pageNumber":pageNumber},
+            data: {"pageNumber":pageNumber,
+                    "condition":condition,
+                    "result":result},
             type:"POST",
             success:function (resData) {
                 //如果采用这种方式 后台定义一下返回码 根据返回码判断提示用户信息还是登陆成功跳转到首页
                 var obj = JSON.parse(resData);
-                if(obj.code==0)
-                {
-                    totalPage=obj.total;
-                    alert(obj.message);
+                var list = obj.pageinfo.list;
+                totalPage = obj.pageinfo.total;
+
+                var tableBody = $('#adminTbody');
+                var innerHtml = '';
+                for(var i = 0;i < list.length;i ++) {
+                    innerHtml += '<tr><td>' + list[i].id + '</td><td>' + list[i].labId + '</td><td>' + list[i].researchName + '</td><td>' +
+                        list[i].researchAuthor + '</td><td>' + list[i].researchType + '</td><a></a><td>详情展示</td></tr>'
                 }
-                else
-                {
-                    alert(obj.message);
-                }
+                tableBody.html(innerHtml);
+
+                $('#totalPage').html(totalPage);
+                $('#currentPage').html(pageNumber);
             },
             error:function (xmlHttpRequest, error) {
-                alert("操作失败，请联系管理员！" + eroor);
+                alert("操作失败，请联系管理员！" + error);
             }
         });
     }

@@ -3,13 +3,13 @@ package com.xbn.pojo;
 import java.util.List;
 
 public class PageInfo {
-    private int pageSize;
+    private int pageSize = 10;
     private long total;
     private List<?> list;
     private int pageStart;
     private String labId;
     private String researchName;
-    private String researchAutho;
+    private String researchAuthor;
 
     public String getLabId() {
         return labId;
@@ -27,13 +27,7 @@ public class PageInfo {
         this.researchName = researchName;
     }
 
-    public String getResearchAutho() {
-        return researchAutho;
-    }
 
-    public void setResearchAutho(String researchAutho) {
-        this.researchAutho = researchAutho;
-    }
 
     public int getPageStart() {
         return pageStart;
@@ -60,4 +54,11 @@ public class PageInfo {
         this.list = list;
     }
 
+    public String getResearchAuthor() {
+        return researchAuthor;
+    }
+
+    public void setResearchAuthor(String researchAuthor) {
+        this.researchAuthor = researchAuthor;
+    }
 }

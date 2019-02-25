@@ -17,7 +17,6 @@ public class LabFilter extends HandlerInterceptorAdapter {
         HttpServletResponse response = (HttpServletResponse) httpServletResponse;
         String ctxPath = request.getContextPath();
         System.out.println("拦截器");
-        System.out.println(request.getPathInfo());
 
         HttpSession session = request.getSession();
 

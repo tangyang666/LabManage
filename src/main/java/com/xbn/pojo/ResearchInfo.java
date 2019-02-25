@@ -6,27 +6,14 @@ public class ResearchInfo  {
     private int id;
     private String labId;
     private String researchName;
-    private String researchAutho;
+    private String researchAuthor;
     private String researchType;
-    private String researchPublicationName;
-    private String researchPublicatuinTime;
-    private String awardingUnit;
+    private String researchPublicationname;
+    private String researchPublicationtime;
+    private String researchAwardingunit;
     private String researchWay;
     private String researchContent;
 
-    public String getResearchContent() {
-        return researchContent;
-    }
-    public void setResearchContent(String researchContent) {
-        this.researchContent = researchContent;
-    }
-
-    public String getResearchWay() {
-        return researchWay;
-    }
-    public void setResearchWay(String researchWay) {
-        this.researchWay = researchWay;
-    }
 
     public int getId() {
         return id;
@@ -52,12 +39,12 @@ public class ResearchInfo  {
         this.researchName = researchName;
     }
 
-    public String getResearchAutho() {
-        return researchAutho;
+    public String getResearchAuthor() {
+        return researchAuthor;
     }
 
-    public void setResearchAutho(String researchAutho) {
-        this.researchAutho = researchAutho;
+    public void setResearchAuthor(String researchAuthor) {
+        this.researchAuthor = researchAuthor;
     }
 
     public String getResearchType() {
@@ -68,27 +55,43 @@ public class ResearchInfo  {
         this.researchType = researchType;
     }
 
-    public String getResearchPublicationName() {
-        return researchPublicationName;
+    public String getResearchWay() {
+        return researchWay;
     }
 
-    public void setResearchPublicationName(String researchPublicationName) {
-        this.researchPublicationName = researchPublicationName;
+    public void setResearchWay(String researchWay) {
+        this.researchWay = researchWay;
     }
 
-    public String getResearchPublicatuinTime() {
-        return researchPublicatuinTime;
+    public String getResearchContent() {
+        return researchContent;
     }
 
-    public void setResearchPublicatuinTime(String researchPublicatuinTime) {
-        this.researchPublicatuinTime = researchPublicatuinTime;
+    public void setResearchContent(String researchContent) {
+        this.researchContent = researchContent;
     }
 
-    public String getAwardingUnit() {
-        return awardingUnit;
+    public String getResearchPublicationname() {
+        return researchPublicationname;
     }
 
-    public void setAwardingUnit(String awardingUnit) {
-        this.awardingUnit = awardingUnit;
+    public void setResearchPublicationname(String researchPublicationname) {
+        this.researchPublicationname = researchPublicationname;
+    }
+
+    public String getResearchPublicationtime() {
+        return researchPublicationtime;
+    }
+
+    public void setResearchPublicationtime(String researchPublicationtime) {
+        this.researchPublicationtime = researchPublicationtime;
+    }
+
+    public String getResearchAwardingunit() {
+        return researchAwardingunit;
+    }
+
+    public void setResearchAwardingunit(String researchAwardingunit) {
+        this.researchAwardingunit = researchAwardingunit;
     }
 }

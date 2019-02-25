@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    <mapper namespace="com.xbn.dao.ResearchDao">
+<mapper namespace="com.xbn.dao.ResearchDao">
         <insert id="addResearch" parameterType="com.xbn.pojo.ResearchInfo" >
          insert into  lab_research_info (lab_id,research_name,research_author,reseach_type,research_publicationname,research_publicationtime,research_awardingunit,research_way,research_content) values(#{labId},#{researchName},#{researchAutho},#{researchType},#{researchPublicationName},#{researchPublicatuinTime},#{awardingUnit},#{researchWay},#{researchContent})
             <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
@@ -10,21 +10,44 @@
             </selectKey>
         </insert>
     <select id="selResearchByPage" parameterType="com.xbn.pojo.PageInfo" resultType="com.xbn.pojo.ResearchInfo">
-        select * from lab_research_info
+        select id,lab_id labId,research_name researchName,research_author researchAuthor,research_type researchType,
+        research_publicationname researchPublicationname,research_publicationtime researchPublicationtime,
+        research_awardingunit researchAwardingunit,research_way researchWay,research_content researchContent
+        from lab_research_info
         <where >
            <if test="labId!=null and labId!=''">
-       and lab_id=#{labId}
+       and lab_id like '%' || #{labId} || '%'
        </if>
         <if test="researchName!=null and researchName!=''">
-       and research_name=#{researchName}
+       and research_name like '%' || #{researchName} || '%'
        </if>
-            <if test="researchAutho!=null and researchAutho!=''">
-                and research_author=#{researchAutho}
+            <if test="researchAuthor!=null and researchAuthor!=''">
+                and research_author like '%' || #{researchAuthor} || '%'
             </if>
        </where>
+        order by id
         limit #{pageStart},#{pageSize}
    </select>
-    <select id="count" resultType="java.lang.Integer">
+    <select id="count" parameterType="com.xbn.pojo.PageInfo" resultType="java.lang.Integer">
         select count(*) from lab_research_info
+        <where >
+            <if test="labId!=null and labId!=''">
+                and lab_id=#{labId}
+            </if>
+            <if test="researchName!=null and researchName!=''">
+                and research_name=#{researchName}
+            </if>
+            <if test="researchAuthor!=null and researchAuthor!=''">
+                and research_author=#{researchAuthor}
+            </if>
+        </where>
     </select>
-   </mapper>
+
+    <select id="queryResearchInfoById" parameterType="java.lang.String" resultType="com.xbn.pojo.ResearchInfo">
+        select id,lab_id labId,research_name researchName,research_author researchAuthor,research_type researchType,
+        research_publicationname researchPublicationname,research_publicationtime researchPublicationtime,
+        research_awardingunit researchAwardingunit,research_way researchWay,research_content researchContent
+        from lab_research_info where id=#{id}
+    </select>
+
+</mapper>

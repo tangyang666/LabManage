@@ -24,19 +24,19 @@ public class ResearchController extends BaseController{
         ResearchInfo researchInfo=new ResearchInfo();
         String labId = req.getParameter("labid");
         String researchName = req.getParameter("researchname");
-        String researchAutho = req.getParameter("researchautho");
+        String researchAuthor = req.getParameter("researchautho");
         String researchType = req.getParameter("researchtype");
         String researchPublicationName = req.getParameter("researchpublicationname");
         String researchPublicatuinTime = req.getParameter("researchpublicatuintime");
         String awardingUnit = req.getParameter("awardingunit");
         String researchWay = req.getParameter("researchway");
         String researchContent=req.getParameter("researchcontent");
-        researchInfo.setAwardingUnit(awardingUnit);
+        researchInfo.setResearchAwardingunit(awardingUnit);
         researchInfo.setLabId(labId);
-        researchInfo.setResearchAutho(researchAutho);
+        researchInfo.setResearchAuthor(researchAuthor);
         researchInfo.setResearchName(researchName);
-        researchInfo.setResearchPublicationName(researchPublicationName);
-        researchInfo.setResearchPublicatuinTime(researchPublicatuinTime);
+        researchInfo.setResearchPublicationname(researchPublicationName);
+        researchInfo.setResearchPublicationtime(researchPublicatuinTime);
         researchInfo.setResearchType(researchType);
         researchInfo.setResearchWay(researchWay);
         researchInfo.setResearchContent(researchContent);
@@ -63,7 +63,7 @@ public class ResearchController extends BaseController{
         switch(conditionInt){
             case 1:researchInfo.setResearchName(condition);break;
             case 2:researchInfo.setLabId(condition);break;
-            case 3:researchInfo.setResearchAutho(condition);break;
+            case 3:researchInfo.setResearchAuthor(condition);break;
         }
         PageInfo pageInfo=researchService.selResearchByPage(researchInfo,pageNumber);
         Map<String,Object> map = new HashMap<String,Object>();

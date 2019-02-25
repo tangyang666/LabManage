@@ -25,17 +25,18 @@ public class ResearchServiceImpl implements ResearchService {
 
     public PageInfo selResearchByPage(ResearchInfo  researchInfo,String pageNumbers){
       int pageNumber=1;
-      if(pageNumbers!=null&&pageNumbers!="")
-     pageNumber=Integer.parseInt(pageNumbers);
+      if(pageNumbers != null && pageNumbers != "") {
+          pageNumber=Integer.parseInt(pageNumbers);
+      }
      PageInfo pageInfo=new PageInfo();
-     int pageCount=researchDao.count();
-     pageInfo.setPageSize(10);
      pageInfo.setPageStart(10*(pageNumber-1));
-     pageInfo.setLabId( researchInfo.getLabId());
-     pageInfo.setResearchAutho(researchInfo.getResearchAutho());
+     pageInfo.setLabId(researchInfo.getLabId());
+     pageInfo.setResearchAuthor(researchInfo.getResearchAuthor());
      pageInfo.setResearchName(researchInfo.getResearchName());
+
+     int pageCount=researchDao.count(pageInfo);
      pageInfo.setTotal(pageCount%10==0?pageCount/10:(pageCount/10)+1);
-     List<ResearchInfo> list=researchDao.selResearchByPage(researchInfo);
+     List<ResearchInfo> list=researchDao.selResearchByPage(pageInfo);
      pageInfo.setList(list);
      return pageInfo;
     }
