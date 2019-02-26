@@ -16,13 +16,13 @@
         from lab_research_info
         <where >
            <if test="labId!=null and labId!=''">
-       and lab_id like '%' || #{labId} || '%'
+       and lab_id like "%"#{labId}"%"
        </if>
         <if test="researchName!=null and researchName!=''">
-       and research_name like '%' || #{researchName} || '%'
+       and research_name like "%"#{researchName}"%"
        </if>
             <if test="researchAuthor!=null and researchAuthor!=''">
-                and research_author like '%' || #{researchAuthor} || '%'
+                and research_author like  "%"#{researchAuthor}"%"
             </if>
        </where>
         order by id

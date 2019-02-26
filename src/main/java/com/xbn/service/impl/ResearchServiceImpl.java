@@ -35,7 +35,7 @@ public class ResearchServiceImpl implements ResearchService {
      pageInfo.setResearchName(researchInfo.getResearchName());
 
      int pageCount=researchDao.count(pageInfo);
-     pageInfo.setTotal(pageCount%10==0?pageCount/10:(pageCount/10)+1);
+     pageInfo.setTotal(pageCount%10==0?(pageCount/10):(pageCount/10)+1);
      List<ResearchInfo> list=researchDao.selResearchByPage(pageInfo);
      pageInfo.setList(list);
      return pageInfo;

@@ -82,16 +82,13 @@
                 <input type="text" autocomplete="off" name="labid"/>
               </div>
             </div>
-            <div>
-              <div class="field-wrap">
-                Student<input type="radio" value="Student"  name="usertype" values="1" checked="checked"/>
-              </div>
-              <div>
-                Teacher<input type="radio" value="Teacher"   name="usertype" values="2"/>
-              </div>
+            <div class="field-wrap">
+            <input type="radio"  value="Student" style="color:white;display: inline;" name="usertype" value="1"  checked="checked"/>Student
+            <input type="radio" value="Teacher" style="color: white;display: inline;"  name="usertype" value="2" />Teacher
             </div>
             <br/>
          <input type="button" class="button button-block"   onclick="checkSignup();" value="Get Started"  />
+            <input type="reset" class="button button-block"   style="display: none;" value="reset"  />
            <!-- <br/>&ndash;&gt;
             <button type="submit"class="button button-block" />Get Started</button>-->
           </form>
@@ -143,13 +140,17 @@
       success:function (resData) {
         //如果采用这种方式 后台定义一下返回码 根据返回码判断提示用户信息还是登陆成功跳转到首页
           var obj = JSON.parse(resData);
-          if(obj.code==0)
+          if(obj.code==0&&(obj.usertype=="Student"))
           {
-              var url=window.location.href+"/index.html";
+              var url="http://localhost:8080/Student.html";
               window.location.href=url;
           }
-          else
+         if(obj.code==0&&(obj.usertype=="Teacher"))
           {
+              var url="http://localhost:8080/Teacher.html";
+              window.location.href=url;
+          }
+          if(obj.code==1){
               alert(obj.message);
           }
       },
@@ -159,8 +160,6 @@
     });
   }
   function checkSignup() {
-     /* var usernames =$("#usernames").val();
-      var passwords =$("#passwords").val();*/
       //ajax提交
       $.ajax({
           url:"login/register.do",
@@ -172,9 +171,7 @@
               {
                   //注册成功，跳转登录页面
                alert(obj.message);
-                  /*location.hash="#login";
-                $("#username").val(usernames);
-                 $("#password").val(passwords);*/
+               $('input[type=reset]').trigger("click");
               }
               else
               {

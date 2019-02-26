@@ -3,49 +3,60 @@ package com.xbn.pojo;
 import java.util.Date;
 
 public class WorkRecordInfo {
-    private String id;
-    private String workRecordName;
-    private String workRecordContent;
-    private Date workRecordTime;
-    private String userId;
+    private int id;
+    private String workrecordName;
+    private String workrecordContent;
+    private String workrecordTime;
+    private String userName;
 
-    public String getId() {
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getWorkRecordName() {
-        return workRecordName;
+    public String getWorkrecordName() {
+        return workrecordName;
     }
 
-    public void setWorkRecordName(String workRecordName) {
-        this.workRecordName = workRecordName;
+    public void setWorkrecordName(String workrecordName) {
+        this.workrecordName = workrecordName;
     }
 
-    public String getWorkRecordContent() {
-        return workRecordContent;
+    public String getWorkrecordContent() {
+        return workrecordContent;
     }
 
-    public void setWorkRecordContent(String workRecordContent) {
-        this.workRecordContent = workRecordContent;
+    public void setWorkrecordContent(String workrecordContent) {
+        this.workrecordContent = workrecordContent;
     }
 
-    public Date getWorkRecordTime() {
-        return workRecordTime;
+    public String getWorkrecordTime() {
+        return workrecordTime;
     }
 
-    public void setWorkRecordTime(Date workRecordTime) {
-        this.workRecordTime = workRecordTime;
+    public void setWorkrecordTime(String workrecordTime) {
+        this.workrecordTime = workrecordTime;
     }
 
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
+    @Override
+    public String toString() {
+        return "WorkRecordInfo{" +
+                "id=" + id +
+                ", workrecordName='" + workrecordName + '\'' +
+                ", workrecordContent='" + workrecordContent + '\'' +
+                ", workrecordTime='" + workrecordTime + '\'' +
+                ", userName='" + userName + '\'' +
+                '}';
     }
 }

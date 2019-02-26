@@ -29,13 +29,17 @@ public class LoginController extends BaseController{
         String password = req.getParameter("password");
         user.setUsername(username);
         user.setPassword(password);
+        UserInfoPojo result=labService.queryUserAndPassword(user);
+        String userType=result.getUserType();
+        System.out.println(result);
         //如果登陆成果 跳转到首页
-        if(labService.queryUserAndPassword(user)!=null) {
+        if(result!=null) {
             //登陆成功后将用户登陆信息存放到session中去
             req.getSession().setAttribute("loginInfo", user);
-            Map map = new HashMap();
+            Map<String,Object> map = new HashMap<String,Object>();
             map.put("message","登录成功");
             map.put("code", "0");
+            map.put("usertype",userType);
             resolveJsonReturn(resp, map);
         } else {
             Map map = new HashMap();
@@ -56,7 +60,7 @@ public class LoginController extends BaseController{
         String name = req.getParameter("name");
         String userid = req.getParameter("userid");
         String leaderusername = req.getParameter("leaderusername");
-        String labid = req.getParameter("labid");
+        int labid = Integer.parseInt(req.getParameter("labid"));
         user.setUsername(username);
         user.setPassword(password);
         user.setEmail(email);

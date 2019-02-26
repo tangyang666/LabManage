@@ -3,7 +3,7 @@
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>工作日报记录</title>
 	<!-- Bootstrap Styles-->
     <link href="css/bootstrap.css" rel="stylesheet" />
      <!-- FontAwesome Styles-->
@@ -23,7 +23,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><i class="fa fa-comments"></i> <strong>MASTER </strong></a>
+                <a class="navbar-brand" href="Student.html"><i class="glyphicon glyphicon-user"></i> <strong>Student</strong></a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
@@ -240,28 +240,28 @@
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 
+                    <!--<li>
+                        <a href="Student.html"><i class="fa fa-dashboard"></i> Dashboard</a>
+                    </li>-->
                     <li>
-                        <a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a>
+                        <a href="ui-elements.html" class="active-menu"><i class="glyphicon glyphicon-edit"></i> 工作日报记录</a>
                     </li>
-                    <li>
-                        <a href="ui-elements.html" class="active-menu"><i class="fa fa-desktop"></i> 工作日报记录</a>
-                    </li>
-					<li>
+				<!--	<li>
                         <a href="chart.html"><i class="fa fa-bar-chart-o"></i> Charts</a>
-                    </li>
-                    <li>
+                    </li>-->
+                 <!--   <li>
                         <a href="tab-panel.html"><i class="fa fa-qrcode"></i> Tabs & Panels</a>
-                    </li>
+                    </li>-->
                     
                     <li>
                         <a href="table.html"><i class="fa fa-table"></i> 科研成果查询</a>
                     </li>
                     <li>
-                        <a href="form.html"><i class="fa fa-edit"></i> 科研成果登记 </a>
+                        <a href="form.html"><i class="glyphicon glyphicon-pencil"></i> 科研成果登记 </a>
                     </li>
 
 
-                    <li>
+                 <!--   <li>
                         <a href="#"><i class="fa fa-sitemap"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
@@ -287,10 +287,10 @@
 
                             </li>
                         </ul>
-                    </li>
-                    <li>
+                    </li>-->
+                   <!-- <li>
                         <a href="empty.html"><i class="fa fa-fw fa-file"></i> Empty Page</a>
-                    </li>
+                    </li>-->
                 </ul>
 
             </div>
@@ -312,45 +312,30 @@
 
 			  <div class="col-md-12">
 			<div class="panel panel-default">
-                <br  id="recordForm" action="record/record.do" method="post">
+                <form  id="recordForm" action="/work/work.do" method="post">
 				<div class="panel-heading" align="center">
 				 <label class="alert alert-warning">日报标题:</label>
-                   <input type="text" class="alert alert-info"  aria-describedby="basic-addon1" name="">
+                   <input type="text" class="alert alert-info"  aria-describedby="basic-addon1" name="workrecordname">
 				</div>
                     <div class="panel-heading" >
-                    <textarea class="form-control" rows="8"  name="researchcontent" placeholder="工作内容记录"></textarea>
+                    <textarea class="form-control" rows="8"  name="workrecordcontent" placeholder="工作内容记录"></textarea>
                     </div></br></br>
-							<!--<div class="panel-body">
-								<div class="alert alert-success">
-									<strong>Well done!</strong> You successfully read this important alert message.
-								</div>
-								<div class="alert alert-info">
-									<strong>Heads up!</strong> This alert needs your attention, but it's not super important.
-								</div>
-								<div class="alert alert-warning">
-									<strong>Warning!</strong> Best check yo self, you're not looking too good.
-								</div>
-								<div class="alert alert-danger">
-									<strong>Oh snap!</strong> Change a few things up and try submitting again.
-								</div>
-							</div>-->
-
                     <div class="input-group ">
-                        <span class="alert alert-warning" >用户名</span>
-                        <input type="text" class="alert alert-info" placeholder="Username" aria-describedby="basic-addon1">
+                        <span class="alert alert-warning" required>用户名</span>
+                        <input type="text"  name="username" class="alert alert-info" placeholder="UserName" aria-describedby="basic-addon1">
                         &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
                         <span class="alert alert-warning" aligen="left">日期</span>
-                        <input type="text" class="alert alert-info" placeholder="Date" aria-describedby="basic-addon1">
+                        <input type="text" name="workrecordtime" class="alert alert-info" placeholder="Date" aria-describedby="basic-addon1">
                         &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
-                       <input type="button" class="btn btn-success btn-lg" value="提交"/>
-
+                       <input type="button" class="btn btn-success btn-lg" value="提交"  onclick="checkRecord();"/>
+                        <input type="reset" class="btn btn-info btn-lg"  value="重置" />
                     </div>
                 </form>
             </div>
 			</div>						
 				</div>								
 									
-				  <div class="row">
+				 <!-- <div class="row">
                     <div class="col-md-6">
                         <div class="panel panel-default">
                         <div class="panel-heading">
@@ -412,7 +397,7 @@
                             </div>
                     </div>
                 </div>
-                 <!-- /. ROW  -->
+                 &lt;!&ndash; /. ROW  &ndash;&gt;
 				 	<div class="row">
                     <div class="col-md-6">
                         <div class="panel panel-default">
@@ -450,8 +435,8 @@
                             </div>
                             </div>
                     </div>
-                </div>				
-                 <div class="row">
+                </div>-->
+                <!-- <div class="row">
                     
                       <div class="col-md-7">
                     <div class="panel panel-default">
@@ -490,8 +475,8 @@
                    
                 </div>
             </div>
-                          </div>
-                     <div class="col-md-5">
+                          </div>-->
+                     <!--<div class="col-md-5">
                       <div class="panel panel-default">
                         <div class="panel-heading">
                            Button Dropdowns
@@ -510,8 +495,8 @@
 												<li class="divider"></li>
 												<li><a href="#">Separated link</a></li>
 											  </ul>
-											</div>
-											<div style="margin:5px;" class="btn-group">
+											</div>-->
+										<!--	<div style="margin:5px;" class="btn-group">
 											  <button data-toggle="dropdown" class="btn btn-danger dropdown-toggle">Danger <span class="caret"></span></button>
 											  <ul class="dropdown-menu">
 												<li><a href="#">Action</a></li>
@@ -520,8 +505,8 @@
 												<li class="divider"></li>
 												<li><a href="#">Separated link</a></li>
 											  </ul>
-											</div>
-                                           <div style="margin:5px;" class="btn-group">
+											</div>-->
+                                          <!-- <div style="margin:5px;" class="btn-group">
 											  <button data-toggle="dropdown" class="btn btn-warning dropdown-toggle">Danger <span class="caret"></span></button>
 											  <ul class="dropdown-menu">
 												<li><a href="#">Action</a></li>
@@ -531,9 +516,9 @@
 												<li><a href="#">Separated link</a></li>
 											  </ul>
 											</div>
-										 
+										 -->
                                                
-                                              	<div class="btn-group">
+                                              <!--	<div class="btn-group">
 											  <button data-toggle="dropdown" class="btn btn-success dropdown-toggle">Success <span class="caret"></span></button>
 											  <ul class="dropdown-menu">
 												<li><a href="#">Action</a></li>
@@ -542,8 +527,8 @@
 												<li class="divider"></li>
 												<li><a href="#">Separated link</a></li>
 											  </ul>
-											</div>
-											<div class="btn-group">
+											</div>-->
+											<!--<div class="btn-group">
 											  <button data-toggle="dropdown" class="btn btn-info dropdown-toggle">Info <span class="caret"></span></button>
 											  <ul class="dropdown-menu">
 												<li><a href="#">Action</a></li>
@@ -563,13 +548,13 @@
 												<li><a href="#">Separated link</a></li>
 											  </ul>
 											</div>
-										  </div>
+										  </div>-->
                                        
-                                       <h4>Split Button Dropdown Examples </h4>
-                                      
-                                       <div style="margin:5px;" class="btn-toolbar">
-										
-										<div class="btn-group">
+                                     <!--  <h4>Split Button Dropdown Examples </h4>-->
+                                 <!--
+                                       <div style="margin:5px;" class="btn-toolbar">-->
+
+								<!--		<div class="btn-group">
 										  <button class="btn btn-primary">Action</button>
 										  <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><span class="caret"></span></button>
 										  <ul class="dropdown-menu">
@@ -579,8 +564,8 @@
 											<li class="divider"></li>
 											<li><a href="#">Separated link</a></li>
 										  </ul>
-										</div>
-										<div class="btn-group">
+										</div>-->
+									<!--	<div class="btn-group">
 										  <button class="btn btn-danger">Danger</button>
 										  <button data-toggle="dropdown" class="btn btn-danger dropdown-toggle"><span class="caret"></span></button>
 										  <ul class="dropdown-menu">
@@ -602,8 +587,8 @@
 											<li><a href="#">Separated link</a></li>
 										  </ul>
 										</div>
-									 
-										<div class="btn-group">
+									 -->
+										<!--<div class="btn-group">
 										  <button class="btn btn-success">Success</button>
 										  <button data-toggle="dropdown" class="btn btn-success dropdown-toggle"><span class="caret"></span></button>
 										  <ul class="dropdown-menu">
@@ -626,31 +611,31 @@
 										  </ul>
 										</div>
 									   
-									  </div>
+									  </div>-->
                                        
 
-                                       <h4>Buttons With Icons</h4>                                       
-										
+                                     <!--  <h4>Buttons With Icons</h4>
+
 											<button class="btn btn-default"><i class=" fa fa-refresh "></i> Update</button>
 											<button class="btn btn-primary"><i class="fa fa-edit "></i> Edit</button>
 											<button class="btn btn-danger"><i class="fa fa-pencil"></i> Delete</button>
-										
-															
-									
+
+
+
 
                                         </div>
                                     </div>
-                    </div>
-                    </div>
+                    </div>-->
+                  <!--  </div>-->
                 <!-- /. ROW  -->
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Circle Icon Buttons 
-                        </div>
-                       
-                        <div class="panel-body">
+                <!--<div class="row">-->
+                   <!-- <div class="col-md-6">-->
+                      <!--  <div class="panel panel-default">-->
+                      <!--  <div class="panel-heading">
+                            Circle Icon Buttons
+                        </div>-->
+
+                       <!-- <div class="panel-body">
                              <br /> <br />
                             <button type="button" class="btn btn-default btn-circle"><i class="fa fa-check"></i>
                             </button>
@@ -668,17 +653,17 @@
                              <p>
                         Get more components at official bootstrap website i.e getbootstrap.com or <a href="http://getbootstrap.com/components/" target="_blank">click here</a> .  
                         </p>
-                        </div>
+                        </div>-->
                         
-                    </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="panel panel-default">
-                        <div class="panel-heading">
+                   <!-- </div>-->
+                 <!--   </div>-->
+                   <!-- <div class="col-md-6">
+                       &lt;!&ndash; <div class="panel panel-default">
+                       &lt;!&ndash; <div class="panel-heading">
                             Icons Examples : 
-                        </div>
+                        </div>&ndash;&gt;
                        
-                        <div class="panel-body">
+                       &lt;!&ndash; <div class="panel-body">
                             <br />  
                             <i class="fa fa-flask "></i>
                             
@@ -690,22 +675,22 @@
                               <p>
                         Get more Icons at official fortawesome website   <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank" >Click here</a> . 
                         </p>
-                        </div>
+                        </div>&ndash;&gt;
                         
-                    </div>
-                    </div>
-                </div>
+                    </div>&ndash;&gt;
+                    </div>-->
+               <!-- </div>-->
                  <!-- /. ROW  -->
                 
                 <div class="row">
                     <div class="col-md-6">
                        
                      <!--  Modals-->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
+                  <!--  <div class="panel panel-default">-->
+                      <!--  <div class="panel-heading">
                             Modals Example
-                        </div>
-                        <div class="panel-body">
+                        </div>-->
+                      <!--  <div class="panel-body">
                             <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
                               Click  Launch Demo Modal
                             </button>
@@ -726,25 +711,25 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </div>-->
+              <!--      </div>-->
                      <!-- End Modals-->
                 
                     </div>
-                     <div class="col-md-6">
-                          <div class="panel panel-default">
-                        <div class="panel-heading">
+                    <!-- <div class="col-md-6">
+                         &lt;!&ndash; <div class="panel panel-default">
+                       &lt;!&ndash; <div class="panel-heading">
                             Sample Text
-                        </div>
-                        <div class="panel-body">
+                        </div>&ndash;&gt;
+                       &lt;!&ndash; <div class="panel-body">
                           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et doloreullamco laboris nisi ut aliquip ex ea commodo
                            
-                             </div>
-                              </div>
-                     </div>
+                        </div>&ndash;&gt;
+                          </div>&ndash;&gt;
+                     </div>-->
                 </div>
                 <!-- /. ROW  -->
-				<footer><p>Copyright &copy; 2016.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p></footer>
+                <footer ><p align="center">实验室管理毕设系统-produced by 夏伯娜</p></footer>
 				</div>
              <!-- /. PAGE INNER  -->
             </div>
@@ -762,4 +747,30 @@
     <script src="js/custom-scripts.js"></script>
  
 </body>
+<script>
+    function checkRecord() {
+        //ajax提交
+        $.ajax({
+            url:"work/work.do",
+            data:$("#recordForm").serialize(),
+            type:"POST",
+            success:function (resData) {
+                //如果采用这种方式 后台定义一下返回码 根据返回码判断提示用户信息还是登陆成功跳转到首页
+                var obj = JSON.parse(resData);
+                if(obj.code==0)
+                {
+                    alert(obj.message);
+                    $('input[type=reset]').trigger("click");
+                }
+                else
+                {
+                    alert(obj.message);
+                }
+            },
+            error:function (xmlHttpRequest, error) {
+                alert("操作失败，请联系管理员！" + eroor);
+            }
+        });
+    }
+</script>
 </html>
