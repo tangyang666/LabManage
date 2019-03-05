@@ -1,10 +1,15 @@
 package com.xbn.service.impl;
 
 import com.xbn.dao.WorkDao;
+import com.xbn.pojo.PageInfo;
+import com.xbn.pojo.UserInfoPojo;
 import com.xbn.pojo.WorkRecordInfo;
 import com.xbn.service.WorkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class WorkServiceImpl implements WorkService{
@@ -20,4 +25,8 @@ public class WorkServiceImpl implements WorkService{
         }
     }
 
+    public List<WorkRecordInfo> selWork() {
+        List<WorkRecordInfo> list=workDao.selWork();
+        return list;
+    }
 }

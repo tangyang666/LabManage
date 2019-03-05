@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -43,5 +44,23 @@ public class WorkRecordController extends BaseController{
             resolveJsonReturn(resp, map);
         }
     }
+
+    @RequestMapping(value = "search.do", method = RequestMethod.POST)
+    public void search(HttpServletRequest req, HttpServletResponse resp){
+        List<WorkRecordInfo> list=workService.selWork();
+        if (list!=null) {
+            Map map = new HashMap();
+            map.put("message","添加成功");
+            map.put("code","0");
+            map.put("list",list);
+            resolveJsonReturn(resp, map);
+        } else {
+            Map map = new HashMap();
+            map.put("message","添加失败，请重新添加");
+            map.put("code","1");
+            resolveJsonReturn(resp, map);
+        }
+    }
+
 
 }

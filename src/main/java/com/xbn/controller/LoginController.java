@@ -31,7 +31,7 @@ public class LoginController extends BaseController{
         user.setPassword(password);
         UserInfoPojo result=labService.queryUserAndPassword(user);
         String userType=result.getUserType();
-        System.out.println(result);
+        System.out.println(userType);
         //如果登陆成果 跳转到首页
         if(result!=null) {
             //登陆成功后将用户登陆信息存放到session中去
@@ -41,7 +41,8 @@ public class LoginController extends BaseController{
             map.put("code", "0");
             map.put("usertype",userType);
             resolveJsonReturn(resp, map);
-        } else {
+        }
+        if (result==null){
             Map map = new HashMap();
             map.put("message","用户名或密码错误");
             map.put("code", "1");

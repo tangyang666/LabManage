@@ -9,4 +9,8 @@
             SELECT LAST_INSERT_ID()
         </selectKey>
     </insert>
+    <select id="selWork"  resultType="com.xbn.pojo.WorkRecordInfo">
+        select workrecord_name workrecordName,workrecord_content  workrecordContent,workrecord_time workrecordTime,user_name userName  from  lab_workrecord_info
+        order by id DESC
+    </select>
 </mapper>
