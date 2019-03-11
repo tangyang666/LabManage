@@ -8,4 +8,5 @@ import java.util.List;
 public interface ResearchService {
     public int addResearch(ResearchInfo researchInfo);
     public PageInfo selResearchByPage(ResearchInfo  researchInfo,String pageNumber);
+
 }

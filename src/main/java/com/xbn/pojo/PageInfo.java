@@ -10,6 +10,15 @@ public class PageInfo {
     private String labId;
     private String researchName;
     private String researchAuthor;
+    private String userId;
+
+
+    public String getUserId() {
+        return userId;
+    }
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
     public String getLabId() {
         return labId;

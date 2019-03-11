@@ -4,14 +4,46 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xbn.dao.LabDao">
     <select id="queryUserAndPassword" parameterType="com.xbn.pojo.UserInfoPojo" resultType="com.xbn.pojo.UserInfoPojo">
-      select * from lab_user_info where username=#{username} and password=#{password}
+      select id,email,mobile,name,username,password,lab_id labId,user_type userType,leader_username leaderUsername,user_id userId,verify   from lab_user_info where username=#{username}  and  password=#{password}
     </select>
 
     <insert id="addUser" useGeneratedKeys="true" keyProperty="id"  parameterType="com.xbn.pojo.UserInfoPojo"  >
-        insert into  lab_user_info (username,password,user_type,email,mobile,name,leader_username,user_id,lab_id) values(#{username},#{password},#{userType},#{email},#{mobile},#{name},#{leaderUsername},#{userId},#{labId})
+        insert into  lab_user_info (username,password,user_type,email,mobile,name,leader_username,user_id,lab_id,verify) values(#{username},#{password},#{userType},#{email},#{mobile},#{name},#{leaderUsername},#{userId},#{labId},#{verify})
     </insert>
 
-    <select id="isNewUser" parameterType="com.xbn.pojo.UserInfoPojo" resultType="Integer">
+    <select id="isNewUser" parameterType="com.xbn.pojo.UserInfoPojo" resultType="java.lang.Integer">
        select count(*) from lab_user_info where user_id=#{userId} and username=#{username}
     </select>
+
+    <select id="queryUser" parameterType="com.xbn.pojo.PageInfo" resultType="com.xbn.pojo.UserInfoPojo">
+        select id,email,mobile,name,lab_id labId,leader_username leaderUsername,user_id userId  from lab_user_info
+        <where>
+            <if test="userId!=null and userId!=''">
+               and  user_id=#{userId}
+            </if>
+            and user_type="Student"
+        </where>
+        order by id
+        limit #{pageStart},#{pageSize}
+    </select>
+
+    <select id="count" parameterType="com.xbn.pojo.PageInfo" resultType="java.lang.Integer">
+    select count(*) from lab_user_info
+        <where>
+            <if test="userId!=null and userId!=''">
+            and  user_id=#{userId}
+            </if>
+            and user_type="Student"
+        </where>
+    </select>
+
+
+    <delete id="delStudent" parameterType="String" >
+        delete from lab_user_info where user_id=#{0}
+    </delete>
+
+    <update id="upStudent" parameterType="String">
+        update lab_user_info set verify="1" where  user_id=#{0}
+    </update>
+
 </mapper>

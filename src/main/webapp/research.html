@@ -1,22 +1,18 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Teacher</title>
+    <title>科研成果登记</title>
     <!-- Bootstrap Styles-->
     <link href="css/bootstrap.css" rel="stylesheet" />
     <!-- FontAwesome Styles-->
     <link href="css/font-awesome.css" rel="stylesheet" />
-    <!-- Morris Chart Styles-->
-    <link href="js/morris/morris-0.4.3.min.css" rel="stylesheet" />
     <!-- Custom Styles-->
     <link href="css/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
-
 <body>
 <div id="wrapper">
     <nav class="navbar navbar-default top-navbar" role="navigation">
@@ -27,7 +23,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="Teacher.html"><i class="glyphicon glyphicon-user"></i> <strong  id="teacher">Teacher </strong></a>
+            <a class="navbar-brand" href="Student.html"><i class="glyphicon glyphicon-user"></i> <strong   id="user">User</strong></a>
         </div>
 
         <ul class="nav navbar-top-links navbar-right">
@@ -241,178 +237,177 @@
     </nav>
     <!--/. NAV TOP  -->
     <nav class="navbar-default navbar-side" role="navigation">
-        <div id="sideNav" href=""><i class="fa fa-caret-right"></i></div>
         <div class="sidebar-collapse">
-            <ul class="nav" id="main-menu">
-
-               <!-- <li>
-                    <a class="active-menu" href="Teacher.html"><i class="fa fa-dashboard"></i> Dashboard</a>
-                </li>-->
-                <li>
-                    <a href="chart.html"><i class="fa fa-bar-chart-o"></i>实验室学生管理</a>
-                </li>
-                <li>
-                    <a href="tab-panel.html"><i class="fa fa-desktop"></i> 工作日报查收</a>
-                </li>
-                <li>
-                    <a href="empty.html"><i class="fa fa-table"></i> 科研成果查询 </a>
-                </li>
-                <li>
-                    <a href="research.html"><i class="fa fa-edit"></i> 科研成果登记 </a>
-                </li>
-
-              <!--  <li>
-                    <a href="#"><i class="fa fa-sitemap"></i> 工作日报记录<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="#">Second Level Link</a>
-                        </li>
-                        <li>
-                            <a href="#">Second Level Link</a>
-                        </li>
-                        <li>
-                            <a href="#">Second Level Link<span class="fa arrow"></span></a>
-                            <ul class="nav nav-third-level">
-                                <li>
-                                    <a href="#">Third Level Link</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level Link</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level Link</a>
-                                </li>
-
-                            </ul>
-
-                        </li>
-                    </ul>
-                </li>-->
-               <!-- <li>
-                    <a href="empty.html"><i class="fa fa-fw fa-file"></i> Empty Page</a>
-                </li>-->
+                <ul class="nav" id="main-menu">
+                    <li>
+                        <a href="chart.html"><i class="fa fa-bar-chart-o"></i>实验室学生管理</a>
+                    </li>
+                    <li>
+                        <a href="tab-panel.html"><i class="fa fa-desktop"></i> 工作日报查收</a>
+                    </li>
+                    <li>
+                        <a href="empty.html"><i class="fa fa-table"></i> 科研成果查询 </a>
+                    </li>
+                    <li>
+                        <a href="research.html"><i class="fa fa-edit"></i> 科研成果登记 </a>
+                    </li>
             </ul>
-
         </div>
 
     </nav>
     <!-- /. NAV SIDE  -->
-    <div id="page-wrapper">
-        <div id="page-inner">
-
-
-            <div class="row">
-                <div class="col-md-12">
-                    <h1 class="page-header">
-                        欢迎来到西北大学实验室管理系统 <small>祝你使用愉快！</small>
-                    </h1>
+    <form   id="researchForm" action="research/record.do" method="post">
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="page-header">
+                            科研成果登记
+                        </h1>
+                    </div>
                 </div>
-            </div>
-
-
-            <!-- /. ROW  -->
-
-            <div class="row">
-                <div class="col-md-4 col-sm-12 col-xs-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            工作任务
-                        </div>
-                        <div class="panel-body">
-                            <div class="list-group">
-
-                                <a href="#" class="list-group-item">
-                                    <span class="badge">10 minutes</span>
-                                    <i class="fa fa-fw fa-comment"></i> 完成工作报告
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <span class="badge">30 minutes</span>
-                                    <i class="fa fa-fw fa-truck"></i> 进行实验
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <span class="badge">2 hours</span>
-                                    <i class="fa fa-fw fa-globe"></i> 完成课程
-                                </a>
+                <!-- /. ROW  -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                成果基本信息
                             </div>
-                            <div class="text-right">
-                                <a href="#">更多任务 <i class="fa fa-arrow-circle-right"></i></a>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>实验室编号</label>
+                                            <input class="form-control"  type="text"required="required" name="labid">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>科研成果名称</label>
+                                            <input class="form-control" required="required" name="researchname">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>第一作者</label>
+                                            <input class="form-control" required="required" type="text" name="researchautho">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>研究形式</label>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="独立研究" name="researchway">独立研究
+                                                </label>
+
+                                                <label>
+                                                    <input type="checkbox" value="与企业合作"  name="researchway">与企业合作
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" value="与院校合作"  name="researchway">与院校合作
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" value="与研究所合作"  name="researchway">与研究所合作
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" value="与国外合作"  name="researchway">与国外合作
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>科研成果简介</label>
+                                            <textarea class="form-control" rows="3"  name="researchcontent"></textarea>
+                                        </div>
+                                        <span style="display:block; width:230px; text-align:right">
+                                        <input type="button" class="btn btn-default" style="background:darkseagreen" onclick="checkRecord();"  value="提交"/>
+                                    </span>
+
+                                    </div>
+                                    <!-- /.col-lg-6 (nested) -->
+                                    <div class="col-lg-6">
+                                        <fieldset >
+                                            <div class="form-group">
+                                                <label >发表（出版社）刊物名称</label>
+                                                <input class="form-control" required="required" type="text"   name="researchpublicationname" >
+                                            </div>
+                                            <div class="form-group">
+                                                <label >出版时间(例2019-2-2)</label>
+                                                <input class="form-control"  type="text"   name="researchpublicatuintime" >
+                                            </div>
+
+                                        </fieldset>
+                                        <div class="form-group input-group">
+                                            <label >鉴别、授奖单位名称</label>
+                                            <input type="text" class="form-control" required="required" name="awardingunit">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>科研成果类型</label>
+                                            <select class="form-control"  name="researchtype" >
+                                                <option value="论文" >论文</option>
+                                                <option value="著作" >著作</option>
+                                                <option value="专利">专利</option>
+                                                <option value="鉴定成果">鉴定成果</option>
+                                                <option value="获奖成果及获批项目" >获奖成果及获批项目</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>成果文件</label>
+                                            <input type="file">
+                                        </div>
+                                        </br></br></br>
+                                        <span style="display:block; width:270px; text-align:right">
+                                        <input type="reset" class="btn btn-default" style="background:darkseagreen" value="重置"/>
+                                    </span>
+                                    </div>
+                                    <!-- /.col-lg-6 (nested) -->
+                                </div>
+                                <!-- /.row (nested) -->
                             </div>
+                            <!-- /.panel-body -->
                         </div>
+                        <!-- /.panel -->
                     </div>
-
+                    <!-- /.col-lg-12 -->
                 </div>
+                <footer ><p align="center">实验室管理毕设系统-produced by 夏伯娜</p></footer>
             </div>
-
-            <div class="row">
-                <div class="col-md-3 col-sm-12 col-xs-12">
-                    <div class="panel panel-primary text-center no-boder bg-color-green green">
-                        <div class="panel-left pull-left green">
-                            <i class="fa fa-bar-chart-o fa-5x"></i>
-
-                        </div>
-                        <div class="panel-right pull-right">
-                            <h3>160</h3>
-                            <strong> 日访问量</strong>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-12 col-xs-12">
-                    <div class="panel panel-primary text-center no-boder bg-color-blue blue">
-                        <div class="panel-left pull-left blue">
-                            <i class="fa fa-shopping-cart fa-5x"></i>
-                        </div>
-
-                        <div class="panel-right pull-right">
-                            <h3>300+ </h3>
-                            <strong> 评论</strong>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-12 col-xs-12">
-                    <div class="panel panel-primary text-center no-boder bg-color-red red">
-                        <div class="panel-left pull-left red">
-                            <i class="fa fa fa-comments fa-5x"></i>
-
-                        </div>
-                        <div class="panel-right pull-right">
-                            <h3>50 </h3>
-                            <strong> 今日访问数 </strong>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- /. ROW  -->
-            <footer ><p align="center">实验室管理毕设系统-produced by 夏伯娜</p></footer>
+            <!-- /. PAGE INNER  -->
         </div>
-        <!-- /. PAGE INNER  -->
-    </div>
-    <!-- /. PAGE WRAPPER  -->
-</div>
+        <!-- /. PAGE WRAPPER  -->
+    </form></div>
 <!-- /. WRAPPER  -->
 <!-- JS Scripts-->
 <!-- jQuery Js -->
 <script src="js/jquery-1.10.2.js"></script>
 <!-- Bootstrap Js -->
 <script src="js/bootstrap.min.js"></script>
-
 <!-- Metis Menu Js -->
 <script src="js/jquery.metisMenu.js"></script>
-<!-- Morris Chart Js -->
-<script src="js/morris/raphael-2.1.0.min.js"></script>
-<script src="js/morris/morris.js"></script>
-
-
-<script src="js/easypiechart.js"></script>
-<script src="js/easypiechart-data.js"></script>
-
-
 <!-- Custom Js -->
 <script src="js/custom-scripts.js"></script>
 
 
 </body>
 
+<script>
+    function checkRecord() {
+        //ajax提交
+        $.ajax({
+            url:"research/record.do",
+            data:$("#researchForm").serialize(),
+            type:"POST",
+            success:function (resData) {
+                //如果采用这种方式 后台定义一下返回码 根据返回码判断提示用户信息还是登陆成功跳转到首页
+                var obj = JSON.parse(resData);
+                if(obj.code==0)
+                {
+                    alert(obj.message);
+                }
+                else
+                {
+                    alert(obj.message);
+                }
+            },
+            error:function (xmlHttpRequest, error) {
+                alert("操作失败，请联系管理员！" + eroor);
+            }
+        });
+    }
+</script>
 </html>

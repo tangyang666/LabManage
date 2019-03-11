@@ -1,7 +1,7 @@
 package com.xbn.pojo;
 
 public class UserInfoPojo {
-    private String id;
+    private int id;
     private String username;
     private String password;
     private String userType;
@@ -10,13 +10,40 @@ public class UserInfoPojo {
     private String name;
     private String leaderUsername;
     private String userId;
-    private String labId;
+    private int labId;
+    private String verify;
 
-    public String getId() {
+
+    @Override
+    public String toString() {
+        return "UserInfoPojo{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", userType='" + userType + '\'' +
+                ", email='" + email + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", name='" + name + '\'' +
+                ", leaderUsername='" + leaderUsername + '\'' +
+                ", userId='" + userId + '\'' +
+                ", labId=" + labId +
+                ", verify='" + verify + '\'' +
+                '}';
+    }
+
+    public String getVerify() {
+        return verify;
+    }
+
+    public void setVerify(String verify) {
+        this.verify = verify;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -84,27 +111,11 @@ public class UserInfoPojo {
         this.userId = userId;
     }
 
-    public String getLabId() {
+    public int getLabId() {
         return labId;
     }
 
-    public void setLabId(String labId) {
+    public void setLabId(int labId) {
         this.labId = labId;
-    }
-
-    @Override
-    public String toString() {
-        return "UserInfoPojo{" +
-                "id='" + id + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", userType='" + userType + '\'' +
-                ", email='" + email + '\'' +
-                ", mobile='" + mobile + '\'' +
-                ", name='" + name + '\'' +
-                ", leaderUsername='" + leaderUsername + '\'' +
-                ", userId='" + userId + '\'' +
-                ", labId='" + labId + '\'' +
-                '}';
     }
 }

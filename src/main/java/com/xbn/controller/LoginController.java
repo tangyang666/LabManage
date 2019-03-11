@@ -29,12 +29,10 @@ public class LoginController extends BaseController{
         String password = req.getParameter("password");
         user.setUsername(username);
         user.setPassword(password);
-        UserInfoPojo result=labService.queryUserAndPassword(user);
-        String userType=result.getUserType();
-        System.out.println(userType);
         //如果登陆成果 跳转到首页
-        if(result!=null) {
+        if(labService.queryUserAndPassword(user)!=null&&labService.queryUserAndPassword(user).getVerify()!="0") {
             //登陆成功后将用户登陆信息存放到session中去
+            String userType=labService.queryUserAndPassword(user).getUserType();
             req.getSession().setAttribute("loginInfo", user);
             Map<String,Object> map = new HashMap<String,Object>();
             map.put("message","登录成功");
@@ -42,10 +40,16 @@ public class LoginController extends BaseController{
             map.put("usertype",userType);
             resolveJsonReturn(resp, map);
         }
-        if (result==null){
+        else{
             Map map = new HashMap();
+            if(labService.queryUserAndPassword(user).getVerify()=="1"){
             map.put("message","用户名或密码错误");
             map.put("code", "1");
+            }
+            if(labService.queryUserAndPassword(user).getVerify()=="0"){
+                map.put("message","用户等待审核");
+                map.put("code", "2");
+            }
             resolveJsonReturn(resp, map);
         }
     }
@@ -62,6 +66,11 @@ public class LoginController extends BaseController{
         String userid = req.getParameter("userid");
         String leaderusername = req.getParameter("leaderusername");
         int labid = Integer.parseInt(req.getParameter("labid"));
+        if(usertype=="Teacher"){
+            user.setVerify("1");
+        }else{
+            user.setVerify("1");
+        }
         user.setUsername(username);
         user.setPassword(password);
         user.setEmail(email);

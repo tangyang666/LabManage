@@ -3,7 +3,7 @@
 <head>
       <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>科研成果查询</title>
 	<!-- Bootstrap Styles-->
     <link href="css/bootstrap.css" rel="stylesheet" />
      <!-- FontAwesome Styles-->
@@ -17,7 +17,7 @@
      <!-- TABLE STYLES-->
     <link href="js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
 </head>
-<body>
+<body   onload="searchRecord()">
     <div id="wrapper">
         <nav class="navbar navbar-default top-navbar" role="navigation">
             <div class="navbar-header">
@@ -27,7 +27,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><i class="fa fa-comments"></i> <strong>MASTER </strong></a>
+                <a class="navbar-brand" href="Student.html"><i class="glyphicon glyphicon-user"></i> <strong   id="user"> User </strong></a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
@@ -231,7 +231,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -244,18 +244,18 @@
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 
-                    <li>
-                        <a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a>
-                    </li>
+                 <!--   <li>
+                        <a href="Student.html"><i class="fa fa-dashboard"></i> Dashboard</a>
+                    </li>-->
                     <li>
                         <a href="ui-elements.html"><i class="fa fa-desktop"></i> 工作日报记录 </a>
                     </li>
-					<li>
+					<!--<li>
                         <a href="chart.html"><i class="fa fa-bar-chart-o"></i> Charts</a>
                     </li>
                     <li>
                         <a href="tab-panel.html"><i class="fa fa-qrcode"></i> Tabs & Panels</a>
-                    </li>
+                    </li>-->
                     
                     <li>
                         <a href="table.html" class="active-menu"><i class="fa fa-table"></i> 科研成果查询</a>
@@ -265,7 +265,7 @@
                     </li>
 
 
-                    <li>
+                 <!--   <li>
                         <a href="#"><i class="fa fa-sitemap"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
@@ -291,10 +291,10 @@
 
                             </li>
                         </ul>
-                    </li>
-                    <li>
+                    </li>-->
+                  <!--  <li>
                         <a href="empty.html"><i class="fa fa-fw fa-file"></i> Empty Page</a>
-                    </li>
+                    </li>-->
                 </ul>
 
             </div>
@@ -306,7 +306,7 @@
 			 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header" align="center">
-                            科研成果表查询
+                            科研成果查询
                         </h1>
                     </div>
                 </div>
@@ -346,7 +346,7 @@
                                 <th>详情</th>
                             </tr>
                              <tbody id="adminTbody">
-                            </tbody> 
+                              </tbody> 
                         </table>
                     </div>
                         </br></br></br></br></br>
@@ -384,7 +384,6 @@
                 </div>
             </div>
         </div>
-    <footer><p>科研成果登记模块 毕设系统</p></footer>
     </div>
             </div>
     <!-- JS Scripts-->
@@ -505,6 +504,8 @@
             }
         });
     }
+
+    window.onload = searchRecord();
 </script>
 
 

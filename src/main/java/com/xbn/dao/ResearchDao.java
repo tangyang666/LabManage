@@ -10,6 +10,5 @@ public interface ResearchDao {
     public Integer addResearch(ResearchInfo  researchInfo);
     public List<ResearchInfo>  selResearchByPage(PageInfo  pageInfo);
     public int count(PageInfo  pageInfo);
-
     public ResearchInfo queryResearchInfoById(@Param("id") String id);
 }

@@ -3,327 +3,468 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
-	<!-- Bootstrap Styles-->
+    <title>科研成果查询</title>
+    <!-- Bootstrap Styles-->
     <link href="css/bootstrap.css" rel="stylesheet" />
-     <!-- FontAwesome Styles-->
+    <!-- FontAwesome Styles-->
     <link href="css/font-awesome.css" rel="stylesheet" />
-        <!-- Custom Styles-->
+    <!-- Morris Chart Styles-->
+
+    <!-- Custom Styles-->
     <link href="css/custom-styles.css" rel="stylesheet" />
-     <!-- Google Fonts-->
-   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <!-- Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <!-- TABLE STYLES-->
+    <link href="js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
 </head>
 <body>
-    <div id="wrapper">
-        <nav class="navbar navbar-default top-navbar" role="navigation">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html"><i class="fa fa-comments"></i> <strong>MASTER </strong></a>
-            </div>
+<div id="wrapper">
+    <nav class="navbar navbar-default top-navbar" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="Student.html"><i class="glyphicon glyphicon-user"></i> <strong   id="user"> User </strong></a>
+        </div>
 
-            <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                        <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-messages">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Doe</strong>
-                                    <span class="pull-right text-muted">
+        <ul class="nav navbar-top-links navbar-right">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                    <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-messages">
+                    <li>
+                        <a href="#">
+                            <div>
+                                <strong>John Doe</strong>
+                                <span class="pull-right text-muted">
                                         <em>Today</em>
                                     </span>
-                                </div>
-                                <div>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
+                            </div>
+                            <div>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <strong>John Smith</strong>
+                                <span class="pull-right text-muted">
                                         <em>Yesterday</em>
                                     </span>
-                                </div>
-                                <div>Lorem Ipsum has been the industry's standard dummy text ever since an kwilnw...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
+                            </div>
+                            <div>Lorem Ipsum has been the industry's standard dummy text ever since an kwilnw...</div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <strong>John Smith</strong>
+                                <span class="pull-right text-muted">
                                         <em>Yesterday</em>
                                     </span>
-                                </div>
-                                <div>Lorem Ipsum has been the industry's standard dummy text ever since the...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>Read All Messages</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-messages -->
-                </li>
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                        <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-tasks">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <p>
-                                        <strong>Task 1</strong>
-                                        <span class="pull-right text-muted">60% Complete</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                            <span class="sr-only">60% Complete (success)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <p>
-                                        <strong>Task 2</strong>
-                                        <span class="pull-right text-muted">28% Complete</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100" style="width: 28%">
-                                            <span class="sr-only">28% Complete</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <p>
-                                        <strong>Task 3</strong>
-                                        <span class="pull-right text-muted">60% Complete</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                            <span class="sr-only">60% Complete (warning)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <p>
-                                        <strong>Task 4</strong>
-                                        <span class="pull-right text-muted">85% Complete</span>
-                                    </p>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%">
-                                            <span class="sr-only">85% Complete (danger)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>See All Tasks</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-tasks -->
-                </li>
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-alerts">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-comment fa-fw"></i> New Comment
-                                    <span class="pull-right text-muted small">4 min</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                    <span class="pull-right text-muted small">12 min</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
-                                    <span class="pull-right text-muted small">4 min</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-tasks fa-fw"></i> New Task
-                                    <span class="pull-right text-muted small">4 min</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                    <span class="pull-right text-muted small">4 min</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>See All Alerts</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-alerts -->
-                </li>
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <!-- /.dropdown -->
-            </ul>
-        </nav>
-        <!--/. NAV TOP  -->
-        <nav class="navbar-default navbar-side" role="navigation">
-            <div class="sidebar-collapse">
-                <ul class="nav" id="main-menu">
-
-                    <li>
-                        <a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a>
+                            </div>
+                            <div>Lorem Ipsum has been the industry's standard dummy text ever since the...</div>
+                        </a>
                     </li>
+                    <li class="divider"></li>
                     <li>
-                        <a href="ui-elements.html"><i class="fa fa-desktop"></i> UI Elements</a>
-                    </li>
-					<li>
-                        <a href="chart.html"><i class="fa fa-bar-chart-o"></i> Charts</a>
-                    </li>
-                    <li>
-                        <a href="tab-panel.html"><i class="fa fa-qrcode"></i> Tabs & Panels</a>
-                    </li>
-                    
-                    <li>
-                        <a href="table.html"><i class="fa fa-table"></i> Responsive Tables</a>
-                    </li>
-                    <li>
-                        <a href="form.html"><i class="fa fa-edit"></i> Forms </a>
-                    </li>
-
-
-                    <li>
-                        <a href="#"><i class="fa fa-sitemap"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">Second Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#">Second Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#">Second Level Link<span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-
-                                </ul>
-
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="active-menu" href="empty.html"><i class="fa fa-fw fa-file"></i> Empty Page</a>
+                        <a class="text-center" href="#">
+                            <strong>Read All Messages</strong>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
                     </li>
                 </ul>
+                <!-- /.dropdown-messages -->
+            </li>
+            <!-- /.dropdown -->
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                    <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-tasks">
+                    <li>
+                        <a href="#">
+                            <div>
+                                <p>
+                                    <strong>Task 1</strong>
+                                    <span class="pull-right text-muted">60% Complete</span>
+                                </p>
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                        <span class="sr-only">60% Complete (success)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <p>
+                                    <strong>Task 2</strong>
+                                    <span class="pull-right text-muted">28% Complete</span>
+                                </p>
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100" style="width: 28%">
+                                        <span class="sr-only">28% Complete</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <p>
+                                    <strong>Task 3</strong>
+                                    <span class="pull-right text-muted">60% Complete</span>
+                                </p>
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                        <span class="sr-only">60% Complete (warning)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <p>
+                                    <strong>Task 4</strong>
+                                    <span class="pull-right text-muted">85% Complete</span>
+                                </p>
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%">
+                                        <span class="sr-only">85% Complete (danger)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a class="text-center" href="#">
+                            <strong>See All Tasks</strong>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-tasks -->
+            </li>
+            <!-- /.dropdown -->
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                    <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-alerts">
+                    <li>
+                        <a href="#">
+                            <div>
+                                <i class="fa fa-comment fa-fw"></i> New Comment
+                                <span class="pull-right text-muted small">4 min</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                <span class="pull-right text-muted small">12 min</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                <span class="pull-right text-muted small">4 min</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <i class="fa fa-tasks fa-fw"></i> New Task
+                                <span class="pull-right text-muted small">4 min</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                <span class="pull-right text-muted small">4 min</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a class="text-center" href="#">
+                            <strong>See All Alerts</strong>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-alerts -->
+            </li>
+            <!-- /.dropdown -->
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                    <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-user -->
+            </li>
+            <!-- /.dropdown -->
+        </ul>
+    </nav>
+    <!--/. NAV TOP  -->
+    <nav class="navbar-default navbar-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav" id="main-menu">
+                <li>
+                    <a href="chart.html"><i class="fa fa-bar-chart-o"></i>实验室学生管理</a>
+                </li>
+                <li>
+                    <a href="tab-panel.html"><i class="fa fa-desktop"></i> 工作日报查收</a>
+                </li>
+                <li>
+                    <a href="empty.html"><i class="fa fa-table"></i> 科研成果查询 </a>
+                </li>
+                <li>
+                    <a href="research.html"><i class="fa fa-edit"></i> 科研成果登记 </a>
+                </li>
+            </ul>
 
-            </div>
-
-        </nav>
-        <!-- /. NAV SIDE  -->
-        <div id="page-wrapper" >
-            <div id="page-inner">
-			 <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="page-header">
-                            Empty Page <small>Create new page.</small>
-                        </h1>
-                    </div>
-                </div> 
-                 <!-- /. ROW  -->
-				 <footer><p>Copyright &copy; 2016.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p></footer>
-				</div>
-             <!-- /. PAGE INNER  -->
-            </div>
-         <!-- /. PAGE WRAPPER  -->
         </div>
-     <!-- /. WRAPPER  -->
-    <!-- JS Scripts-->
-    <!-- jQuery Js -->
-    <script src="js/jquery-1.10.2.js"></script>
-      <!-- Bootstrap Js -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- Metis Menu Js -->
-    <script src="js/jquery.metisMenu.js"></script>
-      <!-- Custom Js -->
-    <script src="js/custom-scripts.js"></script>
-    
-   
+
+    </nav>
+    <!-- /. NAV SIDE  -->
+    <div id="page-wrapper" >
+        <div id="page-inner">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="page-header" align="center">
+                        科研成果查询
+                    </h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group" align="center">
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <label style="font-size:20px; font-color:green">查询条件</label>
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span style=" width:300px; text-align:right; letter-spacing:0.5em">
+                        <select   name="condition" id="condition"  >
+                            <option value="1" >科研成果名称</option>
+                            <option value="2" >实验室编号</option>
+                            <option value="3">第一作者</option>
+                        </select>
+                            </span>
+                        <span style=" width:200px; text-align:right;  letter-spacing:2em" >   :<input  name="result" id="result"/> </span>
+                        <span style=" width:200px; text-align:right; letter-spacing:2em">
+                             <span>&nbsp;&nbsp;&nbsp;</span>
+                        <input type="button"  class="btn btn-default" style="background:darkseagreen" onclick="gotopage(0);" value="Search"/>
+                        </span>
+                    </div>
+                    <!--  <div class="class="well well-sm" >-->
+                    总页数<span id="totalPage" style="text-align: left"></span></br></br>
+                    <a href="javascript:void(0)" onclick="gotopage(-1)"  >上一页</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;当前页数:<span id="currentPage"></span>&nbsp; &nbsp;&nbsp;&nbsp;
+                    <a href="javascript:void(0)" onclick="gotopage(1)" >下一页</a>
+                    <!--  </div>-->
+                    <div class="well well-lg">
+                        <table class="table table-bordered " border="1" align="center">
+                            <tr>
+                                <th>id</th>
+                                <th>实验室编号</th>
+                                <th>科研成果名称</th>
+                                <th>第一作者</th>
+                                <th>成果类型</th>
+                                <th>详情</th>
+                            </tr>
+                             <tbody id="adminTbody">
+                        </tbody> 
+                        </table>
+                    </div>
+                    </br></br></br></br></br>
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">成果概况</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <table id="detailTable"  class="well well-sm" border="1" align="center">
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- JS Scripts-->
+<!-- jQuery Js -->
+<script src="js/jquery-1.10.2.js"></script>
+<!-- Bootstrap Js -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Metis Menu Js -->
+<script src="js/jquery.metisMenu.js"></script>
+<!-- DATA TABLE SCRIPTS -->
+<script src="js/dataTables/jquery.dataTables.js"></script>
+<script src="js/dataTables/dataTables.bootstrap.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#dataTables-example').dataTable();
+    });
+</script>
+<!-- Custom Js -->
+<script src="js/custom-scripts.js"></script>
 </body>
+
+<script>
+    var pageNumber = 1;
+    var totalPage=1;
+    function gotopage(flag){    //统一调用此方法
+        if(flag==-1){
+            if(pageNumber-1<=0) {
+                return;
+            } else {
+                pageNumber=pageNumber-1;
+            }
+        } else if(flag == 1) {
+            if(pageNumber+1>totalPage)
+                return;
+            else {
+                pageNumber=pageNumber+1;
+            }
+        } else {
+            pageNumber = 1;
+        }
+        searchRecord();
+    }
+
+    function searchRecord() {
+        var condition = $('#condition').val();
+        var result = $('#result').val();
+        //ajax提交
+        $.ajax({
+            url:"research/search.do",
+            data: {"pageNumber":pageNumber,
+                "condition":condition,
+                "result":result},
+            type:"POST",
+            success:function (resData) {
+                //如果采用这种方式 后台定义一下返回码 根据返回码判断提示用户信息还是登陆成功跳转到首页
+                var obj = JSON.parse(resData);
+                var list = obj.pageinfo.list;
+                totalPage = obj.pageinfo.total;
+                var tableBody = $('#adminTbody');
+                var innerHtml = '';
+                for(var i = 0;i < list.length;i ++) {
+                    innerHtml += '<tr><td>' + list[i].id + '</td><td>' + list[i].labId + '</td><td>' + list[i].researchName + '</td><td>' +
+                        list[i].researchAuthor + '</td><td>' + list[i].researchType+'</td><td><a tabindex="0"  data-placement="left"     class="btn btn-success" role="button" data-toggle="popover" data-trigger="hover"    data-html="true" title="详情展示"  data-content=\'' +
+                        '' +'<table border="1"><tr> <th colspan="4" style="text-align:center; vertical-alig:middle;width: 700px; height:40px;" >成果概况</th> </tr> <tr>'+' <th  style="text-align:center; vertical-alig:middle;width:100px;height:35px; ">成果名称</th> <td  colspan="3" style="height:40px;text-align:center; vertical-alig:middle;">'+list[i].researchName+
+                        '</td> </tr> <tr> <th  style="text-align:center; vertical-alig:middle;width:100px;height:40px;">实验室编号</th> <td style="width:300px; height:40px;text-align:center; vertical-alig:middle;">'+list[i].labId+'</td> <th  style="text-align:center; vertical-alig:middle;width:100px;height:40px;">出版时间</th> <td  style="height:40px;text-align:center; vertical-alig:middle;" >'+list[i].researchPublicationtime+
+                        '</td> </tr> <tr> <th  style="text-align:center; vertical-alig:middle;width:100px;height:40px;">第一作者</th> <td  colspan="3" style="height:40px;text-align:center; vertical-alig:middle;" >'+list[i].researchAuthor+'</td> </tr> <tr> <th  style="text-align:center; vertical-alig:middle;width:100px;height:40px;">成果类型</th> <td  colspan="3" style="height:40px;text-align:center; vertical-alig:middle;" > ';
+                    if(list[i].researchType == '论文') {
+                        innerHtml += '<input type="checkbox" value="论文" checked>论文 <input type="checkbox" value="著作" >著作 <input type="checkbox" value="专利" >专利 <input type="checkbox" value="鉴定成果" >鉴定成果 <input type="checkbox" value="获奖成果及获批项目" >获奖成果及获批项目 </td> </tr>';
+                    }
+                    if(list[i].researchType == '著作') {
+                        innerHtml += '<input type="checkbox" value="论文">论文 <input type="checkbox" value="著作" checked>著作 <input type="checkbox" value="专利" >专利 <input type="checkbox" value="鉴定成果" >鉴定成果 <input type="checkbox" value="获奖成果及获批项目" >获奖成果及获批项目 </td> </tr>';
+                    }
+                    if(list[i].researchType == '专利') {
+                        innerHtml += '<input type="checkbox" value="论文">论文 <input type="checkbox" value="著作" >著作 <input type="checkbox" value="专利" checked>专利 <input type="checkbox" value="鉴定成果" >鉴定成果 <input type="checkbox" value="获奖成果及获批项目" >获奖成果及获批项目 </td> </tr>';
+                    }
+                    if(list[i].researchType == '鉴定成果') {
+                        innerHtml += '<input type="checkbox" value="论文">论文 <input type="checkbox" value="著作" >著作 <input type="checkbox" value="专利" >专利 <input type="checkbox" value="鉴定成果" checked>鉴定成果 <input type="checkbox" value="获奖成果及获批项目" >获奖成果及获批项目 </td> </tr>';
+                    }
+                    if(list[i].researchType == '获奖成果及获批项目') {
+                        innerHtml += '<input type="checkbox" value="论文">论文 <input type="checkbox" value="著作" >著作 <input type="checkbox" value="专利" >专利 <input type="checkbox" value="鉴定成果" >鉴定成果 <input type="checkbox" value="获奖成果及获批项目" checked>获奖成果及获批项目 </td> </tr>';
+                    }
+
+                    innerHtml += '<tr> <th  style="text-align:center; vertical-alig:middle;width:100px;height:40px;">研究形式</th> <td  colspan="3" style="height:40px;text-align:center; vertical-alig:middle;" > ';
+
+                    if(list[i].researchWay == '独立研究') {
+                        innerHtml += '<input type="checkbox" value="独立研究" checked>独立研究 <input type="checkbox" value="与企业合作" >与企业合作 <input type="checkbox" value="与院校合作" >与院校合作 <input type="checkbox" value="与研究所合作" >与研究所合作 <input type="checkbox" value="与国外合作" >与国外合作';
+                    }
+                    if(list[i].researchWay == '与企业合作') {
+                        innerHtml += '<input type="checkbox" value="独立研究" >独立研究 <input type="checkbox" value="与企业合作" checked>与企业合作 <input type="checkbox" value="与院校合作" >与院校合作 <input type="checkbox" value="与研究所合作" >与研究所合作 <input type="checkbox" value="与国外合作" >与国外合作';
+                    }
+                    if(list[i].researchWay == '与院校合作') {
+                        innerHtml += '<input type="checkbox" value="独立研究" >独立研究 <input type="checkbox" value="与企业合作" >与企业合作 <input type="checkbox" value="与院校合作" checked>与院校合作 <input type="checkbox" value="与研究所合作" >与研究所合作 <input type="checkbox" value="与国外合作" >与国外合作';
+                    }
+                    if(list[i].researchWay == '与研究所合作') {
+                        innerHtml += '<input type="checkbox" value="独立研究" >独立研究 <input type="checkbox" value="与企业合作" >与企业合作 <input type="checkbox" value="与院校合作" >与院校合作 <input type="checkbox" value="与研究所合作" checked>与研究所合作 <input type="checkbox" value="与国外合作" >与国外合作';
+                    }
+                    if(list[i].researchWay == '与国外合作') {
+                        innerHtml += '<input type="checkbox" value="独立研究" >独立研究 <input type="checkbox" value="与企业合作" >与企业合作 <input type="checkbox" value="与院校合作" >与院校合作 <input type="checkbox" value="与研究所合作" >与研究所合作 <input type="checkbox" value="与国外合作" checked>与国外合作';
+                    }
+
+                    innerHtml += '</td> </tr> <tr> <th  style="text-align:center; vertical-alig:middle;width:100px;height:40px;">发表刊物名称</th> <td colspan="3" style="height:40px;text-align:center; vertical-alig:middle;" >' +list[i].researchPublicationname+'</td> </tr> <tr> <th  style="text-align:center; vertical-alig:middle;width:150px;height:40px;">鉴别、授奖单位名称</th> ' +
+                        '<td colspan="3" style="height:40px;text-align:center; vertical-alig:middle;" >'+list[i].researchAwardingunit +'</td> </tr> <tr> <th  style="text-align:center; vertical-alig:middle;width:100px;height:200px;">成果简介</th> <td colspan="3"  >'+list[i].researchContent+'</td> </tr>\'>'+"详情展示"+'</a></td>';
+                }
+                tableBody.html(innerHtml);
+                $('[data-toggle="popover"]').popover();
+                $('#totalPage').html(totalPage);
+                $('#currentPage').html(pageNumber);
+            },
+            error:function (xmlHttpRequest, error) {
+                /* $.globalMessenger().post({
+                     message: "操作失败，请联系管理员！",//提示信息
+                     type: 'error',//消息类型。error、info、success
+                     hideAfter: 3,//多长时间消失
+                     showCloseButton:true,//是否显示关闭按钮
+                     hideOnNavigate: true //是否隐藏导航
+                 });*/
+                alert("操作失败，请联系管理员！" + error);
+            }
+        });
+    }
+</script>
+
+
 </html>
