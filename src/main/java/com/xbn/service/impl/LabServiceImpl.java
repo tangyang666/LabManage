@@ -44,4 +44,5 @@ public class LabServiceImpl implements LabService {
     public void delStudent(String userid){
         labDao.delStudent(userid);
     }
+    public void upStudent(String userid){ labDao.upStudent(userid);  }
 }

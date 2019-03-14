@@ -288,8 +288,6 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;当前页数:<span id="currentPage"></span>&nbsp; &nbsp;&nbsp;&nbsp;
                         <a href="javascript:void(0)" onclick="gotopage(1)" >下一页</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="button" class="btn btn-success  btn-group-lg"   onclick="verify()"  value="审核通过"/>
-                        <input type="button" class="btn btn-danger  btn-group-lg"   onclick="delStudent()" value="删除学生" />
                         <input  type="button "  class="btn btn-info  btn-group-sm" value="新增学生"  id="btn_add" name="btn_add" >
                         <!--  </div>-->
                         <div class="well well-lg">
@@ -303,6 +301,7 @@
                                     <th>管辖教师</th>
                                     <th>电子邮件</th>
                                     <th>电话</th>
+                                    <th>审核</th>
                                 </tr>
                                  <tbody id="adminTbody">
                             </tbody> 
@@ -376,6 +375,7 @@
 <script>
     var pageNumber = 1;
     var totalPage=1;
+    var u;
     $("#btn_add").click(function () {
         $("#myModalLabel").text("新增");
         $('#myModal').modal();
@@ -416,9 +416,17 @@
                 var tableBody = $('#adminTbody');
                 var innerHtml = '';
                 for(var i = 0;i < list.length;i ++) {
-                   console.log(this.userId);
-                    innerHtml += '<tr><td><input id="checkstudent" type="checkbox"/> '+ '</td><td>'+ list[i].id + '</td><td>' + list[i].name + '</td><td   id="user">' + list[i].userId + '</td><td>' +
-                        list[i].labId + '</td><td>' + list[i].leaderUsername+'</td><td>' + list[i].email+'</td><td>' + list[i].mobile+'</td><td>'
+                    innerHtml += '<tr><td><input name="test" type="checkbox" /> '+ '</td><td>'+ list[i].id + '</td><td>' + list[i].name + '</td><td   id="user">' + list[i].userId + '</td><td>' +
+                        list[i].labId + '</td><td>' + list[i].leaderUsername+'</td><td>' + list[i].email+'</td><td>' + list[i].mobile+'</td><td>';
+                    u=list[i].userId;
+                    if(list[i].verify=='0'){
+                        innerHtml +='<input type="button" class="btn btn-success  btn-group-lg"   onclick="verify(u)"  value="审核通过"/></td></tr>';
+                    }
+                    else{
+
+                        innerHtml +='<input type="button" class="btn btn-danger  btn-group-lg"   onclick="delStudent(u)"  value="删除该学生"/></td></tr>';
+                    }
+
                 }
                 tableBody.html(innerHtml);
                 $('[data-toggle="popover"]').popover();
@@ -431,12 +439,11 @@
         });
     }
 
-    function delStudent(user) {
-        var userid=user;
-        console.log(userid);
+    function delStudent(u) {
+       console.log(u);
         $.ajax({
             url:"lab/delete.do",
-            data: {"userid":userid},
+            data: {"userid":u},
             type:"POST",
             success:function (resData) {
                 var obj = JSON.parse(resData);
@@ -478,12 +485,11 @@
     }
 
 
-    function verify(user) {
-        var userid=user;
-        console.log(userid);
+    function verify(u) {
+        console.log(u);
         $.ajax({
             url:"lab/change.do",
-            data: {"userid":userid},
+            data: {"userid":u},
             type:"POST",
             success:function (resData) {
                 var obj = JSON.parse(resData);

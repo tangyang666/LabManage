@@ -43,8 +43,8 @@ public class LabController extends BaseController{
 
     @RequestMapping(value = "delete.do", method = RequestMethod.POST)
     public void delete(HttpServletRequest req, HttpServletResponse resp) {
-        String userid= req.getParameter("userid");
-        labService.delStudent(userid);
+        String userId=req.getParameter("userid");
+        labService.delStudent(userId);
         Map<String,Object> map = new HashMap<String,Object>();
         map.put("message","删除成功");
         resolveJsonReturn(resp, map);
@@ -81,5 +81,17 @@ public class LabController extends BaseController{
             resolveJsonReturn(resp, map);
         }
     }
+
+    @RequestMapping(value = "change.do", method = RequestMethod.POST)
+    public void change(HttpServletRequest req, HttpServletResponse resp) {
+        String userid= req.getParameter("userid");
+        System.out.println(userid);
+        labService.upStudent(userid);
+        Map<String,Object> map = new HashMap<String,Object>();
+        map.put("message","审核成功！");
+        resolveJsonReturn(resp, map);
+    }
+
+
 
 }

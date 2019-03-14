@@ -11,5 +11,6 @@ public interface LabService {
     public  int isNewUser(UserInfoPojo user);
     public PageInfo queryUser(String pageNumber,String useid);
     public void delStudent(String userid);
+    public void upStudent(String userid);
 
 }

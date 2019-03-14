@@ -14,4 +14,5 @@ public interface LabDao {
     List<UserInfoPojo> queryUser(PageInfo pageInfo);
     void delStudent(String uerid);
     int count(PageInfo pageInfo);
+    void upStudent(String userid);
 }

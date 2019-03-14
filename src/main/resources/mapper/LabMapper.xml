@@ -16,14 +16,14 @@
     </select>
 
     <select id="queryUser" parameterType="com.xbn.pojo.PageInfo" resultType="com.xbn.pojo.UserInfoPojo">
-        select id,email,mobile,name,lab_id labId,leader_username leaderUsername,user_id userId  from lab_user_info
+        select id,email,mobile,name,lab_id labId,leader_username leaderUsername,user_id userId,verify  from lab_user_info
         <where>
             <if test="userId!=null and userId!=''">
                and  user_id=#{userId}
             </if>
             and user_type="Student"
         </where>
-        order by id
+        order by id 
         limit #{pageStart},#{pageSize}
     </select>
 
