@@ -416,15 +416,17 @@
                 var tableBody = $('#adminTbody');
                 var innerHtml = '';
                 for(var i = 0;i < list.length;i ++) {
+                    console.info(list);
                     innerHtml += '<tr><td><input name="test" type="checkbox" /> '+ '</td><td>'+ list[i].id + '</td><td>' + list[i].name + '</td><td   id="user">' + list[i].userId + '</td><td>' +
                         list[i].labId + '</td><td>' + list[i].leaderUsername+'</td><td>' + list[i].email+'</td><td>' + list[i].mobile+'</td><td>';
                     u=list[i].userId;
-                    if(list[i].verify=='0'){
-                        innerHtml +='<input type="button" class="btn btn-success  btn-group-lg"   onclick="verify(u)"  value="审核通过"/></td></tr>';
+
+                   if(list[i].verify=='0'){
+                        innerHtml +="<input type='button' class='btn btn-success  btn-group-lg' onclick='verify(" + u + ")'  value='审核通过'/></td></tr>";
                     }
                     else{
 
-                        innerHtml +='<input type="button" class="btn btn-danger  btn-group-lg"   onclick="delStudent(u)"  value="删除该学生"/></td></tr>';
+                        innerHtml +="<input type='button' class='btn btn-danger  btn-group-lg' onclick='delStudent(" + u + ")' value='删除该学生'/></td></tr>";
                     }
 
                 }
@@ -440,7 +442,7 @@
     }
 
     function delStudent(u) {
-       console.log(u);
+       console.info(u);
         $.ajax({
             url:"lab/delete.do",
             data: {"userid":u},
